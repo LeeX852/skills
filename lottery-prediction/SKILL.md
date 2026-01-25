@@ -29,40 +29,27 @@ lottery-prediction
 
 **脚本位置**: `scripts/data_fetcher.py`
 
-**功能概述**: 从多个在线数据源获取大乐透历史开奖数据，支持缓存机制和异常处理。
+**功能概述**: 从体彩官方API获取大乐透历史开奖数据，支持缓存机制和异常处理。
 
-**数据源配置**（按优先级排序）:
+**数据源配置**:
 
-1. **500彩票网**
-   - URL: `https://datachart.500.com/dlt/history/newinc/history.php`
-   - 解析方式: HTML + 正则表达式提取
+- **体彩官方API**
+   - URL: `https://webapi.sporttery.cn/gateway/lottery/getHistoryPageListV1.qry`
+   - 游戏编号: `gameNo=85` (大乐透)
+   - 解析方式: JSON API响应
    - 数据格式: 期号、日期、前区5个号码、后区2个号码
-
-2. **网易彩票**
-   - URL: `https://caipiao.163.com/award/dlt/`
-   - 解析方式: JSON/API响应
-   - 备用数据源
-
-3. **新浪彩票**
-   - URL: `https://lottery.sina.com.cn/award/dlt/data.js`
-   - 解析方式: JS文件中的JSON数据
-   - 备用数据源
 
 **核心方法**:
 
 - `fetch_history(count)` - 获取指定期数的历史数据
-- `_fetch_from_source(source, count)` - 从指定数据源获取数据
-- `_fetch_from_500(source, count)` - 500彩票网专用解析
-- `_fetch_from_163(source, count)` - 网易彩票专用解析
-- `_fetch_from_sina(source, count)` - 新浪彩票专用解析
-- `_generate_mock_data(count)` - 生成模拟数据（当所有数据源失败时）
+- `_generate_mock_data(count)` - 生成模拟数据（当API请求失败时）
 - `save_to_file(data, filename)` - 保存数据到JSON文件
 - `load_from_file(filename)` - 从JSON文件加载数据
 
 **异常处理**:
-- 网络超时（10秒）
-- 自动尝试下一个数据源
-- 所有数据源失败时使用模拟数据
+- 网络超时（15秒）
+- JSON解析失败
+- API返回错误时自动切换到模拟数据
 
 **数据格式**:
 ```json
@@ -314,13 +301,15 @@ python scripts/lottery_main.py --save-cache
 
 1. **文本格式** (默认):
    ```
+   ============================================================
    【大乐透预测号码】
-   期次：2026001（最新期次）
+   ============================================================
+   期次：2026001（下一期预测）
    分析期数：100 期
 
    推荐5注号码：
-   第1注：03 09 17 24 31 + 04 08
-   第2注：05 12 19 26 33 + 02 11
+   第1注：03 09 17 24 31 + 04 08 [均衡策略]
+   第2注：05 12 19 26 33 + 02 11 [冷热策略]
    ...
 
    预测依据：
@@ -329,6 +318,7 @@ python scripts/lottery_main.py --save-cache
    ...
 
    注：仅供娱乐参考，理性投注
+   ============================================================
    ```
 
 2. **JSON格式**:
@@ -412,6 +402,9 @@ python scripts/lottery_main.py -p 200 -n 10 -f json --show-analysis --save-cache
 #### 单独测试各个模块
 
 ```bash
+# 测试体彩官方API连接性
+python scripts/test_sporttery_api.py
+
 # 测试数据获取模块
 python scripts/data_fetcher.py
 
@@ -453,7 +446,8 @@ lottery-prediction/
     ├── data_fetcher.py          # 数据获取模块
     ├── analyzer.py              # 数据分析模块
     ├── predictor.py             # 预测生成模块
-    └── lottery_main.py          # 主程序入口
+    ├── lottery_main.py          # 主程序入口
+    └── test_sporttery_api.py    # 体彩API测试脚本
 ```
 
 #### 模块说明
@@ -461,9 +455,9 @@ lottery-prediction/
 **1. data_fetcher.py - 数据获取模块**
 
 - `LotteryDataFetcher` 类：封装所有数据获取逻辑
-- 支持多数据源，自动故障切换
+- 使用体彩官方API获取大乐透历史数据
 - 缓存机制：`save_to_file()` 和 `load_from_file()`
-- 异常处理：所有数据源失败时自动使用模拟数据
+- 异常处理：API请求失败时自动使用模拟数据
 
 **2. analyzer.py - 数据分析模块**
 
@@ -484,7 +478,14 @@ lottery-prediction/
 - 整合所有模块，提供统一接口
 - 命令行参数解析
 - 流程编排：数据获取 → 分析 → 预测 → 输出
+- Windows终端UTF-8兼容：`UTF8Stdout` 包装器
 - 输出格式：text 和 JSON
+
+**5. test_sporttery_api.py - API测试脚本**
+
+- 测试体彩官方API的连接性
+- 验证API响应格式和数据结构
+- 用于调试和验证数据获取功能
 
 #### 数据流程
 
@@ -497,11 +498,7 @@ lottery-prediction/
 │  LotteryData    │
 │  Fetcher        │
 │  ┌───────────┐  │
-│  │ 500彩票网 │──┼──► 成功
-│  ├───────────┤  │
-│  │ 网易彩票 │──┼──► 备用
-│  ├───────────┤  │
-│  │ 新浪彩票 │──┼──► 备用
+│  │体彩官方API│──┼──► 成功
 │  ├───────────┤  │
 │  │ 模拟数据 │──┼──► 兜底
 │  └───────────┘  │
@@ -546,7 +543,7 @@ lottery-prediction/
 
 #### 特性说明
 
-1. **多数据源支持**: 500彩票网、网易彩票、新浪彩票，自动故障切换
+1. **官方API数据源**: 使用体彩官方API获取大乐透历史数据
 2. **缓存机制**: 支持保存和加载数据，避免重复请求
 3. **多种分析算法**: 频率、区间、奇偶比、和值、遗漏等5种算法
 4. **多种预测策略**: 均衡、冷热、遗漏、区间、随机等5种策略
@@ -554,6 +551,7 @@ lottery-prediction/
 6. **详细报告**: 可选显示完整的分析报告
 7. **异常处理**: 完善的异常处理，确保程序稳定运行
 8. **模块化设计**: 各模块职责清晰，易于维护和扩展
+9. **Windows兼容**: UTF-8输出包装器，确保Windows终端正常显示中文
 
 ### 更新日志
 
@@ -591,10 +589,13 @@ python scripts/lottery_main.py --format json
 ### 常见问题
 
 **Q: 为什么显示"使用模拟数据"？**
-A: 当所有在线数据源都获取失败时，系统会自动使用模拟数据继续运行，确保程序不会中断。
+A: 当体彩官方API请求失败时，系统会自动使用模拟数据继续运行，确保程序不会中断。
 
 **Q: 如何使用缓存？**
 A: 首次运行时使用 `--save-cache` 保存数据，后续运行使用 `--use-cache` 加载缓存数据。
 
 **Q: 预测结果是否准确？**
 A: 本预测基于历史数据的统计分析，仅供参考。彩票开奖完全随机，无法预测准确结果。
+
+**Q: Windows终端显示乱码怎么办？**
+A: 程序已内置UTF-8输出包装器，应能正常显示中文。如仍有问题，请确保终端编码设置为UTF-8。
