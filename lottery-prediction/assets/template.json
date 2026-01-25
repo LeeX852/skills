@@ -1,0 +1,27 @@
+{
+  "lottery": "大乐透",
+  "front": {
+    "count": 5,
+    "range": {
+      "min": 1,
+      "max": 35
+    }
+  },
+  "back": {
+    "count": 2,
+    "range": {
+      "min": 1,
+      "max": 12
+    }
+  },
+  "prediction_count": 5,
+  "analysis_period": 100,
+  "output_format": "text",
+  "strategies": [
+    "balanced",
+    "hot_cold",
+    "miss",
+    "interval",
+    "random"
+  ]
+}
