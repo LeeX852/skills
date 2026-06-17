@@ -1,0 +1,7 @@
+{
+  "tool_name": "Read",
+  "tool_input_preview": "{\"file_path\":\"D:\\\\study\\\\Programs\\\\skills\\\\godot-Developer\"}",
+  "error": "EISDIR: illegal operation on a directory, read 'D:\\study\\Programs\\skills\\godot-Developer'",
+  "timestamp": "2026-06-17T02:47:48.265Z",
+  "retry_count": 1
+}
