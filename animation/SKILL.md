@@ -1,38 +1,33 @@
-# Animation System Skill
+---
+name: animation
+description: Create and manage animations in Godot using AnimationPlayer, AnimationTree, Tween, and AnimatedSprite2D. Use this skill when building character animations, UI transitions, sprite frame animations, tween-based effects, or animation state machines.
+metadata:
+  author: godot-dev
+  version: "1.0"
+---
 
-## Description
-Expert skill for Godot's animation system including AnimationPlayer, AnimationTree, and Tween
-
-## Triggers
-- Animation creation
-- AnimationPlayer
-- AnimationTree
-- Tween animations
-- Sprite animation
-- Skeletal animation
+# Animation System
 
 ## AnimationPlayer
 
 ### Basic Setup
+
 ```gdscript
 extends Node2D
 
 @onready var animation_player = $AnimationPlayer
 
 func _ready():
-    # Play animation
     animation_player.play("walk")
-    
-    # Play with custom speed
     animation_player.play("run", -1, 2.0)  # name, blend, speed
 
 func _process(delta):
-    # Check if animation is playing
     if animation_player.is_playing():
         print(animation_player.current_animation)
 ```
 
 ### Animation Callbacks
+
 ```gdscript
 func _ready():
     animation_player.animation_finished.connect(_on_animation_finished)
@@ -49,42 +44,36 @@ func _on_animation_started(anim_name: String):
 ## Tween Animations
 
 ### Basic Tween
+
 ```gdscript
 extends Node2D
 
 func _ready():
-    # Create tween
     var tween = create_tween()
-    
-    # Animate property
     tween.tween_property(self, "position", Vector2(100, 0), 1.0)
-    
-    # Chain animations
     tween.tween_property(self, "modulate:a", 0.0, 0.5)
     tween.tween_callback(queue_free)
 ```
 
 ### Tween Options
+
 ```gdscript
 func animate_with_options():
     var tween = create_tween()
-    
-    # Set ease and transition
     tween.set_ease(Tween.EASE_IN_OUT)
     tween.set_trans(Tween.TRANS_CUBIC)
-    
+
     # Parallel animations
     tween.tween_property($Sprite, "position", Vector2(100, 0), 1.0)
     tween.parallel().tween_property($Sprite, "modulate", Color.RED, 1.0)
-    
+
     # Looped tween
     tween.set_loops(3)
-    
-    # Interval
     tween.tween_interval(0.5)
 ```
 
 ### Common Tween Patterns
+
 ```gdscript
 # Fade in
 func fade_in(node: CanvasItem, duration: float = 0.5):
@@ -127,6 +116,7 @@ func _physics_process(delta):
 ## AnimationTree
 
 ### State Machine
+
 ```gdscript
 extends CharacterBody3D
 
@@ -139,11 +129,9 @@ func _ready():
     animation_tree.active = true
 
 func _physics_process(delta):
-    # Update animation parameters
     animation_tree.set("parameters/Idle/blend_position", velocity.length())
     animation_tree.set("parameters/Walk/blend_position", velocity.length())
-    
-    # Transition between states
+
     if is_on_floor():
         if velocity.length() > 0:
             current_state = State.WALK

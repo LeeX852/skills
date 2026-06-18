@@ -1,20 +1,15 @@
-# GDScript Development Skill
+---
+name: gdscript
+description: Write, debug, and optimize GDScript code for Godot Engine 4.x. Use this skill when creating scripts, fixing GDScript errors, connecting signals, configuring export variables, setting up node references, or implementing character movement and game logic in GDScript.
+metadata:
+  author: godot-dev
+  version: "1.0"
+---
 
-## Description
-Expert skill for writing and optimizing GDScript code for Godot Engine 4.x
+# GDScript Development
 
-## Triggers
-- Writing GDScript scripts
-- GDScript syntax questions
-- Code optimization
-- Debugging GDScript errors
-- Signal connections
-- Export variables
-- Node references
+## Script Structure
 
-## Key Patterns
-
-### Script Structure
 ```gdscript
 extends Node2D  # or Node3D, CharacterBody2D, etc.
 
@@ -47,7 +42,8 @@ func _physics_process(delta: float):
     pass
 ```
 
-### Common Node Types
+## Common Node Types
+
 - **Node2D/Node3D**: Base spatial nodes
 - **CharacterBody2D/3D**: Player/enemy movement with physics
 - **RigidBody2D/3D**: Physics-driven objects
@@ -58,7 +54,8 @@ func _physics_process(delta: float):
 - **Timer**: Delayed execution
 - **Camera2D/Camera3D**: Viewport control
 
-### Signal Pattern
+## Signal Pattern
+
 ```gdscript
 # Define signal
 signal player_hit(damage: int)
@@ -72,9 +69,10 @@ func _on_player_hit(damage: int):
     health_changed.emit(health)
 ```
 
-### Movement Patterns
+## Movement Patterns
 
-#### 2D Character Movement
+### 2D Character Movement
+
 ```gdscript
 extends CharacterBody2D
 
@@ -84,22 +82,20 @@ extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
-    # Apply gravity
     if not is_on_floor():
         velocity.y += gravity * delta
-    
-    # Handle jump
+
     if Input.is_action_just_pressed("jump") and is_on_floor():
         velocity.y = jump_velocity
-    
-    # Get input direction
+
     var direction = Input.get_axis("move_left", "move_right")
     velocity.x = direction * speed
-    
+
     move_and_slide()
 ```
 
-#### 3D Character Movement
+### 3D Character Movement
+
 ```gdscript
 extends CharacterBody3D
 
@@ -109,29 +105,27 @@ extends CharacterBody3D
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _physics_process(delta):
-    # Apply gravity
     if not is_on_floor():
         velocity.y -= gravity * delta
-    
-    # Handle jump
+
     if Input.is_action_just_pressed("jump") and is_on_floor():
         velocity.y = jump_velocity
-    
-    # Get input direction
+
     var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
     var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-    
+
     if direction:
         velocity.x = direction.x * speed
         velocity.z = direction.z * speed
     else:
         velocity.x = move_toward(velocity.x, 0, speed)
         velocity.z = move_toward(velocity.z, 0, speed)
-    
+
     move_and_slide()
 ```
 
-### Best Practices
+## Best Practices
+
 1. Use `@onready` for node references (resolved when scene enters tree)
 2. Use `@export` for editor-configurable values
 3. Prefer `move_and_slide()` for character physics
@@ -140,7 +134,8 @@ func _physics_process(delta):
 6. Use `_physics_process()` for physics calculations
 7. Use `_process()` for visual/gameplay updates
 
-### Debug Tips
+## Debug Tips
+
 - Use `print()` or `prints()` for console output
 - Use `breakpoint` keyword or `push_warning()` for debugging
 - Enable "Visible Collision Shapes" in Debug menu

@@ -1,19 +1,17 @@
-# Input System Skill
+---
+name: input-system
+description: Handle player input in Godot across keyboard, mouse, gamepad, and touch devices. Use this skill when configuring input actions, processing keyboard/mouse/gamepad events, implementing touch controls, setting up virtual joysticks, managing mouse modes, or building remappable input systems.
+metadata:
+  author: godot-dev
+  version: "1.0"
+---
 
-## Description
-Expert skill for Godot's input system including actions, gamepad, and touch input
-
-## Triggers
-- Input handling
-- Keyboard input
-- Mouse input
-- Gamepad support
-- Touch input
-- Input mapping
+# Input System
 
 ## Input Actions
 
 ### Setup in Project Settings
+
 ```
 Project Settings → Input Map
 - Add action: "jump"
@@ -22,36 +20,26 @@ Project Settings → Input Map
 ```
 
 ### Using Input Actions
+
 ```gdscript
 extends Node
 
 func _input(event):
-    # Check action pressed
     if event.is_action_pressed("jump"):
         jump()
-    
-    # Check action released
     if event.is_action_released("jump"):
         stop_jump()
 
 func _process(delta):
-    # Continuous input check
     if Input.is_action_pressed("move_right"):
         move_right()
-    
-    # Just pressed (one frame)
     if Input.is_action_just_pressed("attack"):
         attack()
-    
-    # Just released
     if Input.is_action_just_released("attack"):
         end_attack()
 
-    # Get axis (-1 to 1)
     var move_x = Input.get_axis("move_left", "move_right")
     var move_y = Input.get_axis("move_up", "move_down")
-    
-    # Get vector (normalized)
     var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 ```
 
@@ -70,8 +58,7 @@ func _input(event):
                     pause()
                 KEY_F1:
                     toggle_debug()
-        
-        # Check modifiers
+
         if event.ctrl_pressed and event.keycode == KEY_S:
             save_game()
 ```
@@ -82,30 +69,22 @@ func _input(event):
 extends Node
 
 func _input(event):
-    # Mouse button
     if event is InputEventMouseButton:
         if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
             shoot()
-        
         if event.button_index == MOUSE_BUTTON_RIGHT:
             if event.pressed:
                 start_aim()
             else:
                 end_aim()
-        
-        # Mouse wheel
         if event.button_index == MOUSE_BUTTON_WHEEL_UP:
             zoom_in()
         if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
             zoom_out()
-    
-    # Mouse motion
+
     if event is InputEventMouseMotion:
-        # Relative movement
         var delta = event.relative
         rotate_camera(delta)
-        
-        # Global position
         var pos = event.position
         update_cursor(pos)
 ```
@@ -125,21 +104,14 @@ func _input(event):
                     cancel()
                 JOY_BUTTON_START:
                     pause()
-    
+
     if event is InputEventJoypadMotion:
-        # Left stick
         if event.axis == JOY_AXIS_LEFT_X:
-            var stick_x = event.axis_value
-            move_horizontal(stick_x)
-        
+            move_horizontal(event.axis_value)
         if event.axis == JOY_AXIS_LEFT_Y:
-            var stick_y = event.axis_value
-            move_vertical(stick_y)
-        
-        # Triggers
+            move_vertical(event.axis_value)
         if event.axis == JOY_AXIS_TRIGGER_RIGHT:
-            var trigger = event.axis_value
-            if trigger > 0.5:
+            if event.axis_value > 0.5:
                 shoot()
 
 func get_stick_vector() -> Vector2:
@@ -160,7 +132,7 @@ func _input(event):
             on_touch_down(event.position, event.index)
         else:
             on_touch_up(event.position, event.index)
-    
+
     if event is InputEventScreenDrag:
         on_touch_move(event.position, event.index)
 
@@ -191,12 +163,11 @@ func _input(event):
         elif not event.pressed and event.index == touch_index:
             touch_index = -1
             joystick_input.emit(Vector2.ZERO)
-    
+
     if event is InputEventScreenDrag and event.index == touch_index:
         var center = global_position + texture_normal.get_size() / 2
         var direction = (event.position - center).normalized()
         var distance = event.position.distance_to(center)
-        
         if distance > deadzone * texture_normal.get_size().x:
             joystick_input.emit(direction)
         else:
@@ -207,9 +178,10 @@ func is_point_inside(point: Vector2) -> bool:
     return rect.has_point(point)
 ```
 
-## Input Mapping Best Practices
+## Input Mapping Standards
 
-### Standard FPS Controls
+### FPS Controls
+
 ```
 move_forward: W, Up, Left Stick Up
 move_back: S, Down, Left Stick Down
@@ -222,7 +194,8 @@ interact: E, X Button
 attack: Left Mouse, Right Trigger
 ```
 
-### Standard Platformer Controls
+### Platformer Controls
+
 ```
 move_left: A, Left, Left Stick Left
 move_right: D, Right, Left Stick Right
@@ -237,16 +210,9 @@ dash: Shift, B Button
 extends Node
 
 func _ready():
-    # Visible and free
     Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-    
-    # Captured (for FPS)
     Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-    
-    # Hidden
     Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-    
-    # Confined to window
     Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
 func _input(event):

@@ -1,52 +1,40 @@
-# 3D Development Skill
+---
+name: 3d-development
+description: Develop 3D games in Godot including meshes, lighting, cameras, environments, and 3D model importing. Use this skill when building 3D scenes, setting up lighting rigs, configuring cameras, importing glTF/FBX models, implementing 3D character controllers, or working with the 3D rendering pipeline.
+metadata:
+  author: godot-dev
+  version: "1.0"
+---
 
-## Description
-Expert skill for Godot 3D game development including meshes, lighting, and 3D physics
-
-## Triggers
-- 3D game development
-- Mesh handling
-- 3D lighting
-- Camera3D
-- Environment setup
-- 3D models import
+# 3D Development
 
 ## Node3D Basics
 
 ### Transform and Position
+
 ```gdscript
 extends Node3D
 
 func _ready():
-    # Position
     position = Vector3(1, 2, 3)
-    
-    # Rotation (radians)
     rotation = Vector3(0, PI/2, 0)
-    
-    # Scale
     scale = Vector3(2, 2, 2)
-    
-    # Look at target
     look_at(Vector3(10, 0, 10))
-    
-    # Global transform
     global_position = Vector3(0, 5, 0)
 ```
 
 ## MeshInstance3D
 
 ### Basic Mesh Setup
+
 ```gdscript
 extends MeshInstance3D
 
 func _ready():
-    # Create procedural mesh
     var mesh = BoxMesh.new()
     mesh.size = Vector3(1, 1, 1)
     self.mesh = mesh
-    
-    # Set material
+
     var material = StandardMaterial3D.new()
     material.albedo_color = Color.RED
     material.metallic = 0.5
@@ -57,6 +45,7 @@ func _ready():
 ## Camera3D
 
 ### Basic Camera
+
 ```gdscript
 extends Camera3D
 
@@ -66,13 +55,8 @@ extends Camera3D
 @export var smooth_speed = 5.0
 
 func _ready():
-    # Set as current camera
     current = true
-    
-    # Field of view
     fov = 75.0
-    
-    # Clip distances
     near = 0.1
     far = 1000.0
 
@@ -87,6 +71,7 @@ func _physics_process(delta):
 ```
 
 ### Third Person Camera
+
 ```gdscript
 extends Node3D
 
@@ -113,11 +98,9 @@ func _input(event):
 func _physics_process(delta):
     if target:
         global_position = target.global_position
-        
         rotation = Vector3.ZERO
         rotate_y(yaw)
         rotate_x(pitch)
-        
         camera.position = Vector3(0, 0, distance)
         camera.look_at(global_position)
 ```
@@ -125,22 +108,19 @@ func _physics_process(delta):
 ## 3D Lighting
 
 ### Directional Light (Sun)
+
 ```gdscript
 extends DirectionalLight3D
 
 func _ready():
-    # Sun properties
     light_color = Color(1, 0.95, 0.8)
     light_energy = 1.2
-    
-    # Shadows
     shadow_enabled = true
-    
-    # Rotate for sun position
     rotation_degrees = Vector3(-45, 30, 0)
 ```
 
 ### Point Light
+
 ```gdscript
 extends OmniLight3D
 
@@ -152,6 +132,7 @@ func _ready():
 ```
 
 ### Spot Light
+
 ```gdscript
 extends SpotLight3D
 
@@ -166,39 +147,28 @@ func _ready():
 ## Environment Setup
 
 ### WorldEnvironment
+
 ```gdscript
 extends WorldEnvironment
 
 func _ready():
     var env = Environment.new()
-    
-    # Background
     env.background_mode = Environment.BG_SKY
     env.sky = Sky.new()
-    
-    # Ambient light
     env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
     env.ambient_light_energy = 0.5
-    
-    # Tonemap
     env.tonemap_mode = Environment.TONE_MAP_ACES
-    
-    # Glow
     env.glow_enabled = true
     env.glow_intensity = 0.8
-    
-    # SSR (Screen Space Reflections)
     env.ssr_enabled = true
-    
-    # SSAO
     env.ssao_enabled = true
-    
     environment = env
 ```
 
 ## 3D Movement
 
-### Character Movement
+### Character Movement (FPS)
+
 ```gdscript
 extends CharacterBody3D
 
@@ -218,43 +188,40 @@ func _input(event):
         $Camera3D.rotation.x = clamp($Camera3D.rotation.x, -1.2, 1.2)
 
 func _physics_process(delta):
-    # Gravity
     if not is_on_floor():
         velocity.y -= gravity * delta
-    
-    # Jump
+
     if Input.is_action_just_pressed("jump") and is_on_floor():
         velocity.y = jump_velocity
-    
-    # Movement
+
     var input_dir = Input.get_vector("left", "right", "forward", "back")
     var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-    
+
     if direction:
         velocity.x = direction.x * speed
         velocity.z = direction.z * speed
     else:
         velocity.x = move_toward(velocity.x, 0, speed)
         velocity.z = move_toward(velocity.z, 0, speed)
-    
+
     move_and_slide()
 ```
 
 ## Importing 3D Models
 
 ### Supported Formats
+
 - **glTF 2.0** (.glb, .gltf) - Recommended
 - **FBX** (.fbx)
 - **OBJ** (.obj)
 - **Collada** (.dae)
 
-### Import Settings
+### Import and Access
+
 ```gdscript
-# After import, access the scene
 var model = preload("res://models/character.glb").instantiate()
 add_child(model)
 
-# Access mesh
 var mesh_instance = model.get_node("MeshInstance3D")
 ```
 
@@ -270,8 +237,6 @@ func _physics_process(delta):
         var collider = ray_cast.get_collider()
         var point = ray_cast.get_collision_point()
         var normal = ray_cast.get_collision_normal()
-        
-        # Do something with collision info
         if collider.has_method("interact"):
             collider.interact()
 ```

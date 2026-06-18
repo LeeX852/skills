@@ -1,0 +1,7 @@
+{
+  "tool_name": "WebFetch",
+  "tool_input_preview": "{\"url\":\"https://developer.aliyun.com/article/1734589\",\"prompt\":\"提取完整的Cursor Skills规范，包括：文件格式、frontmatter字段、必需字段、内容结构、命名规范、示例等所有细节\"}",
+  "error": "Unable to verify if domain developer.aliyun.com is safe to fetch. This may be due to network restrictions or enterprise security policies blocking claude.ai.",
+  "timestamp": "2026-06-18T02:36:30.002Z",
+  "retry_count": 3
+}

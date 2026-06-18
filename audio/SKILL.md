@@ -1,34 +1,26 @@
-# Audio System Skill
+---
+name: audio
+description: Implement audio in Godot including sound effects, music playback, audio buses, and 3D spatial audio. Use this skill when setting up audio players, managing audio buses, creating music systems with crossfade, pooling audio sources, or adding positional audio to 2D/3D scenes.
+metadata:
+  author: godot-dev
+  version: "1.0"
+---
 
-## Description
-Expert skill for Godot's audio system including playback, effects, and bus management
-
-## Triggers
-- Sound effects
-- Music playback
-- Audio bus
-- Audio streams
-- 3D audio
+# Audio System
 
 ## AudioStreamPlayer (Non-positional)
 
 ### Basic Playback
+
 ```gdscript
 extends Node
 
 @onready var audio_player = $AudioStreamPlayer
 
 func _ready():
-    # Play sound
     audio_player.play()
-    
-    # Play with delay
     audio_player.play(0.5)  # Start at 0.5 seconds
-    
-    # Set volume (dB)
     audio_player.volume_db = -10
-    
-    # Set pitch
     audio_player.pitch_scale = 1.2
 
 func play_sfx():
@@ -39,6 +31,7 @@ func stop_sfx():
 ```
 
 ### One-Shot Sound Effects
+
 ```gdscript
 extends Node
 
@@ -61,8 +54,7 @@ extends Node2D
 @onready var audio = $AudioStreamPlayer2D
 
 func _ready():
-    # 2D positional audio
-    audio.max_distance = 500  # Pixels
+    audio.max_distance = 500
     audio.attenuation = 2.0
     audio.play()
 ```
@@ -75,8 +67,7 @@ extends Node3D
 @onready var audio = $AudioStreamPlayer3D
 
 func _ready():
-    # 3D positional audio
-    audio.max_distance = 20.0  # Meters
+    audio.max_distance = 20.0
     audio.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
     audio.play()
 ```
@@ -84,33 +75,28 @@ func _ready():
 ## Audio Bus Management
 
 ### Setup in Code
+
 ```gdscript
 extends Node
 
 func _ready():
-    # Get audio bus index
     var music_bus = AudioServer.get_bus_index("Music")
     var sfx_bus = AudioServer.get_bus_index("SFX")
-    
-    # Set volume
+
     AudioServer.set_bus_volume_db(music_bus, linear_to_db(0.8))
     AudioServer.set_bus_volume_db(sfx_bus, linear_to_db(1.0))
-    
-    # Mute bus
     AudioServer.set_bus_mute(music_bus, true)
 ```
 
 ### Adding Effects
+
 ```gdscript
 func add_reverb_to_bus(bus_name: String):
     var bus_idx = AudioServer.get_bus_index(bus_name)
-    
-    # Add reverb effect
     var reverb = AudioEffectReverb.new()
     reverb.room_size = 0.8
     reverb.damping = 0.5
     reverb.wet = 0.3
-    
     AudioServer.add_bus_effect(bus_idx, reverb)
 ```
 
@@ -127,37 +113,31 @@ var current_track: String = ""
 func play_music(track_path: String, fade_time: float = 1.0):
     if current_track == track_path:
         return
-    
+
     current_track = track_path
-    
-    # Fade out current
     var tween = create_tween()
     tween.tween_property(music_player, "volume_db", -80.0, fade_time)
     await tween.finished
-    
-    # Load and play new track
+
     music_player.stream = load(track_path)
     music_player.volume_db = -80.0
     music_player.play()
-    
-    # Fade in
+
     tween = create_tween()
     tween.tween_property(music_player, "volume_db", 0.0, fade_time)
 
 func crossfade_music(new_track: String, duration: float = 2.0):
-    # Create new player for crossfade
     var new_player = AudioStreamPlayer.new()
     new_player.stream = load(new_track)
     new_player.volume_db = -80.0
     add_child(new_player)
     new_player.play()
-    
-    # Crossfade
+
     var tween = create_tween()
     tween.set_parallel(true)
     tween.tween_property(music_player, "volume_db", -80.0, duration)
     tween.tween_property(new_player, "volume_db", 0.0, duration)
-    
+
     await tween.finished
     music_player.stop()
     music_player = new_player
@@ -172,11 +152,8 @@ extends Node
 @onready var engine_sound = $AudioStreamPlayer
 
 func _process(delta):
-    # Pitch based on speed
     var speed_ratio = current_speed / max_speed
     engine_sound.pitch_scale = lerp(0.8, 2.0, speed_ratio)
-    
-    # Volume based on speed
     engine_sound.volume_db = lerp(-20, 0, speed_ratio)
 ```
 
@@ -195,14 +172,12 @@ func _ready():
         audio_pool.append(player)
 
 func play_sound(stream: AudioStream) -> AudioStreamPlayer:
-    # Find available player
     for player in audio_pool:
         if not player.playing:
             player.stream = stream
             player.play()
             return player
-    
-    # All busy, steal oldest
+
     var player = audio_pool[0]
     player.stream = stream
     player.play()

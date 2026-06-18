@@ -1,20 +1,17 @@
-# UI System Skill
+---
+name: ui-system
+description: Build user interfaces in Godot using Control nodes. Use this skill when creating menus, HUDs, buttons, layouts, themes, input fields, pause screens, or any UI element for 2D or 3D games.
+metadata:
+  author: godot-dev
+  version: "1.0"
+---
 
-## Description
-Expert skill for Godot's Control node system and UI development
-
-## Triggers
-- UI design
-- Menus
-- HUD
-- Buttons
-- Layouts
-- Themes
-- Input fields
+# UI System
 
 ## Core UI Nodes
 
 ### Layout Containers
+
 ```gdscript
 # HBoxContainer - Horizontal layout
 # VBoxContainer - Vertical layout
@@ -23,17 +20,16 @@ Expert skill for Godot's Control node system and UI development
 # CenterContainer - Centers children
 # TabContainer - Tabbed interface
 
-# Example: Vertical menu
 extends VBoxContainer
 
 func _ready():
-    # Add spacing
     add_theme_constant_override("separation", 10)
 ```
 
 ### Common Controls
 
 #### Label
+
 ```gdscript
 extends Label
 
@@ -44,6 +40,7 @@ func _ready():
 ```
 
 #### Button
+
 ```gdscript
 extends Button
 
@@ -59,6 +56,7 @@ func _on_pressed():
 ```
 
 #### ProgressBar
+
 ```gdscript
 extends ProgressBar
 
@@ -75,6 +73,7 @@ func update_health(new_health: int):
 ```
 
 #### LineEdit (Text Input)
+
 ```gdscript
 extends LineEdit
 
@@ -90,6 +89,7 @@ func _on_text_submitted(new_text: String):
 ```
 
 #### TextureRect
+
 ```gdscript
 extends TextureRect
 
@@ -102,7 +102,6 @@ func _ready():
 ## CanvasLayer for UI
 
 ```gdscript
-# UI should be on a CanvasLayer to stay on screen
 extends CanvasLayer
 
 @onready var health_bar = $HealthBar
@@ -115,17 +114,16 @@ func update_score(score: int):
 ## Themes
 
 ### Setting Theme
+
 ```gdscript
-# In editor: Set theme property on Control node
-# In code:
 func _ready():
     var theme = preload("res://themes/game_theme.tres")
     set_theme(theme)
 ```
 
 ### Theme Overrides
+
 ```gdscript
-# Override specific properties
 func style_button(button: Button):
     button.add_theme_font_size_override("font_size", 20)
     button.add_theme_color_override("font_color", Color.WHITE)
@@ -135,13 +133,13 @@ func style_button(button: Button):
 ## Anchors & Margins
 
 ### Screen Positioning
+
 ```gdscript
 # Anchor presets:
 # 0,0 = Top-left
 # 0.5,0.5 = Center
 # 1,1 = Bottom-right
 
-# Example: Center on screen
 func center_control(control: Control):
     control.set_anchors_preset(Control.PRESET_CENTER)
     control.offset_left = -50
@@ -151,13 +149,12 @@ func center_control(control: Control):
 ```
 
 ### Responsive Layout
+
 ```gdscript
 extends Control
 
 func _ready():
-    # Full screen
     set_anchors_preset(Control.PRESET_FULL_RECT)
-    
     # Or specific margins
     anchor_left = 0.1
     anchor_top = 0.1
@@ -198,18 +195,10 @@ func hide_menu():
     visible = false
 ```
 
-## Best Practices
-
-1. **Use CanvasLayer**: Keep UI separate from game world
-2. **Anchors over absolute position**: Responsive to screen size
-3. **Theme for consistency**: Centralize styling
-4. **Signals for interaction**: Decouple UI from game logic
-5. **Containers for layout**: Let Godot handle positioning
-6. **Focus management**: Support keyboard/gamepad navigation
-
 ## Common Patterns
 
 ### Pause Menu
+
 ```gdscript
 extends CanvasLayer
 
@@ -227,6 +216,7 @@ func toggle_pause():
 ```
 
 ### HUD Update
+
 ```gdscript
 extends CanvasLayer
 
@@ -239,3 +229,12 @@ func _on_score_changed(new_score: int):
 func _on_health_changed(new_health: int):
     health_bar.value = new_health
 ```
+
+## Best Practices
+
+1. **Use CanvasLayer**: Keep UI separate from game world
+2. **Anchors over absolute position**: Responsive to screen size
+3. **Theme for consistency**: Centralize styling
+4. **Signals for interaction**: Decouple UI from game logic
+5. **Containers for layout**: Let Godot handle positioning
+6. **Focus management**: Support keyboard/gamepad navigation
