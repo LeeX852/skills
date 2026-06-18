@@ -1,0 +1,1800 @@
+- generic [active] [ref=e1]:
+  - img
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - link [ref=e6] [cursor=pointer]:
+          - /url: https://download.app.aliyun.com/app/aliyunapp/download/home?ulinks_fallback=aliyun%3A%2F%2Fforward%2Fsign%3Ftarget_%3D%2Fapp%2Fhome%26tab_%3Dconsole&channel=maliyun202506
+        - generic:
+          - generic [ref=e8]: 
+          - generic:
+            - img
+            - link "打开 APP" [ref=e9] [cursor=pointer]:
+              - /url: https://download.app.aliyun.com/app/aliyunapp/download/home?ulinks_fallback=aliyun%3A%2F%2Fforward%2Fsign%3Ftarget_%3D%2Fapp%2Fhome%26tab_%3Dconsole&channel=maliyun202506
+      - banner [ref=e10]:
+        - link [ref=e11] [cursor=pointer]:
+          - /url: https://www.aliyun.com/
+          - img [ref=e12]
+        - generic [ref=e16]:
+          - link [ref=e20] [cursor=pointer]:
+            - /url: https://www.aliyun.com/search?from=h5-global-nav-search
+            - img [ref=e21]:
+              - img [ref=e22]
+          - link "你好，我是AI助理，可以解答问题、推荐解决方案等" [ref=e26] [cursor=pointer]:
+            - /url: https://www.aliyun.com/ai-assistant?displayMode=side
+            - img [ref=e29]
+            - paragraph [ref=e30]: 你好，我是AI助理，可以解答问题、推荐解决方案等
+          - button "头像" [ref=e31] [cursor=pointer]:
+            - img "头像" [ref=e32]
+          - button "菜单" [ref=e33] [cursor=pointer]:
+            - img "菜单" [ref=e34]
+    - navigation [ref=e36]:
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - generic [ref=e41] [cursor=pointer]:
+            - text: 开发者社区
+            - generic [ref=e42]: 
+          - link "个人" [ref=e44] [cursor=pointer]:
+            - /url: /my#
+        - generic:
+          - generic [ref=e45]:
+            - generic [ref=e46] [cursor=pointer]:
+              - text: 开发者社区
+              - generic [ref=e47]: 
+            - link "个人" [ref=e49] [cursor=pointer]:
+              - /url: /my#
+          - generic [ref=e53]:
+            - link "首页" [ref=e56] [cursor=pointer]:
+              - /url: https://developer.aliyun.com/
+            - generic [ref=e58]:
+              - generic [ref=e59]: 探索云世界
+              - generic [ref=e60]: 
+            - link "问产品" [ref=e63] [cursor=pointer]:
+              - /url: https://developer.aliyun.com/ask/hottestQuestionsWithProduct
+            - link "动手实践" [ref=e66] [cursor=pointer]:
+              - /url: https://developer.aliyun.com/adc/
+            - link "官方博客" [ref=e69] [cursor=pointer]:
+              - /url: https://developer.aliyun.com/blog/
+            - link "考认证" [ref=e72] [cursor=pointer]:
+              - /url: https://edu.aliyun.com/
+            - link "TIANCHI大赛" [ref=e75] [cursor=pointer]:
+              - /url: https://tianchi.aliyun.com/
+            - generic [ref=e77]:
+              - generic [ref=e78]: 活动广场
+              - generic [ref=e79]: 
+            - generic [ref=e81]:
+              - generic [ref=e82]: 下载
+              - generic [ref=e83]: 
+      - text:  
+  - generic [ref=e85]:
+    - generic [ref=e86]:
+      - text:   
+      - generic [ref=e87]:
+        - heading "Agent Skill规范、构建与设计模式" [level=1] [ref=e88]
+        - generic [ref=e90]:
+          - generic [ref=e91]:
+            - generic [ref=e92]: 2026-05-14
+            - generic [ref=e93]:  2165
+          - generic [ref=e95] [cursor=pointer]: 版权
+        - generic [ref=e99]: 简介： 文章从 Skill 的规范格式、三层渐进式加载机制、模型驱动触发逻辑出发，深入解析 Skill-Creator 的工程化开发范式。（文章内容基于作者个人技术实践与独立思考，旨在分享经验，仅代表个人观点。）
+        - generic [ref=e106]:
+          - heading "前言" [level=1] [ref=e107]
+          - paragraph [ref=e108]: Skill 不是 Prompt——它是围绕任务、工具、流程和输出边界的结构化行为设计。 写好 Skill 的关键在于理解规范标准、掌握构建方法论、选择合适的设计模式。
+          - paragraph [ref=e109]:
+            - generic [ref=e116]:
+              - img [ref=e117]
+              - text: 
+          - paragraph [ref=e118]
+          - heading "一、Skill 规范标准" [level=1] [ref=e119]
+          - heading "1.1 什么是 Agent Skill" [level=2] [ref=e120]
+          - paragraph [ref=e121]: 在 AI Agent 生态中，Skill 是一种可复用的 Prompt 增强包，通过渐进式加载机制为 Agent 注入领域知识和工作流程。2025 年 12 月，Anthropic 将 Skill 规范作为开放标准发布，目前已被 33+ 个 Agent 产品采纳，包括 Claude Code、OpenAI Codex、GitHub Copilot、VS Code、Cursor、Gemini CLI、Kiro 等。
+          - paragraph [ref=e122]: 一个 Skill 的最小形态只需要一个文件：
+          - generic [ref=e124]:
+            - generic [ref=e129]:
+              - generic [ref=e132]: skill-name/
+              - generic [ref=e135]: "├── SKILL.md # 必需：YAML 元数据 + Markdown 指令"
+              - generic [ref=e138]: "├── scripts/ # 可选：可执行脚本"
+              - generic [ref=e141]: "├── references/ # 可选：按需加载的参考文档"
+              - generic [ref=e144]: "└── assets/ # 可选：模板、资源文件"
+            - generic [ref=e147] [cursor=pointer]: 
+          - paragraph [ref=e150]
+          - heading "1.2 SKILL 格式规范" [level=2] [ref=e151]
+          - paragraph [ref=e152]: 根据Anthropic提出的规范，SKILL.md 由 YAML frontmatter（元数据） 和 Markdown body（指令正文） 两部分组成。
+          - paragraph [ref=e153]: YAML frontmatter 字段：
+          - table [ref=e158]:
+            - rowgroup [ref=e164]:
+              - row "字段 是否必填 说明 约束" [ref=e165]:
+                - cell "字段" [ref=e166]:
+                  - paragraph [ref=e167]: 字段
+                - cell "是否必填" [ref=e168]:
+                  - paragraph [ref=e169]: 是否必填
+                - cell "说明" [ref=e170]:
+                  - paragraph [ref=e171]: 说明
+                - cell "约束" [ref=e172]:
+                  - paragraph [ref=e173]: 约束
+              - row "name 是 Skill 的唯一标识名 最多 64 个字符，仅允许小写字母、数字和连字符，不能以连字符开头或结尾，不能包含连续连字符，必须与所在文件夹名一致" [ref=e174]:
+                - cell "name" [ref=e175]:
+                  - paragraph [ref=e176]: name
+                - cell "是" [ref=e177]:
+                  - paragraph [ref=e178]:
+                    - code [ref=e179]: 是
+                - cell "Skill 的唯一标识名" [ref=e180]:
+                  - paragraph [ref=e181]: Skill 的唯一标识名
+                - cell "最多 64 个字符，仅允许小写字母、数字和连字符，不能以连字符开头或结尾，不能包含连续连字符，必须与所在文件夹名一致" [ref=e182]:
+                  - paragraph [ref=e183]: 最多 64 个字符，仅允许小写字母、数字和连字符，不能以连字符开头或结尾，不能包含连续连字符，必须与所在文件夹名一致
+              - row "description 是 描述这个 Skill 做什么、什么时候使用 最多 1024 个字符，不能为空，应该包含帮助 AI 识别相关任务的关键词" [ref=e184]:
+                - cell "description" [ref=e185]:
+                  - paragraph [ref=e186]: description
+                - cell "是" [ref=e187]:
+                  - paragraph [ref=e188]:
+                    - code [ref=e189]: 是
+                - cell "描述这个 Skill 做什么、什么时候使用" [ref=e190]:
+                  - paragraph [ref=e191]: 描述这个 Skill 做什么、什么时候使用
+                - cell "最多 1024 个字符，不能为空，应该包含帮助 AI 识别相关任务的关键词" [ref=e192]:
+                  - paragraph [ref=e193]: 最多 1024 个字符，不能为空，应该包含帮助 AI 识别相关任务的关键词
+              - row "license 否 许可证信息 许可证名称或指向许可证文件的引用" [ref=e194]:
+                - cell "license" [ref=e195]:
+                  - paragraph [ref=e196]: license
+                - cell "否" [ref=e197]:
+                  - paragraph [ref=e198]:
+                    - code [ref=e199]: 否
+                - cell "许可证信息" [ref=e200]:
+                  - paragraph [ref=e201]: 许可证信息
+                - cell "许可证名称或指向许可证文件的引用" [ref=e202]:
+                  - paragraph [ref=e203]: 许可证名称或指向许可证文件的引用
+              - row "compatibility 否 环境兼容性要求 最多 500 字符，说明需要的运行环境或依赖" [ref=e204]:
+                - cell "compatibility" [ref=e205]:
+                  - paragraph [ref=e206]: compatibility
+                - cell "否" [ref=e207]:
+                  - paragraph [ref=e208]:
+                    - code [ref=e209]: 否
+                - cell "环境兼容性要求" [ref=e210]:
+                  - paragraph [ref=e211]: 环境兼容性要求
+                - cell "最多 500 字符，说明需要的运行环境或依赖" [ref=e212]:
+                  - paragraph [ref=e213]: 最多 500 字符，说明需要的运行环境或依赖
+              - row "metadata 否 自定义扩展元数据 键值对映射，可存储规范之外的额外属性" [ref=e214]:
+                - cell "metadata" [ref=e215]:
+                  - paragraph [ref=e216]: metadata
+                - cell "否" [ref=e217]:
+                  - paragraph [ref=e218]:
+                    - code [ref=e219]: 否
+                - cell "自定义扩展元数据" [ref=e220]:
+                  - paragraph [ref=e221]: 自定义扩展元数据
+                - cell "键值对映射，可存储规范之外的额外属性" [ref=e222]:
+                  - paragraph [ref=e223]: 键值对映射，可存储规范之外的额外属性
+              - row "allowed-tools 否 预授权工具列表 空格分隔的字符串，实验性功能" [ref=e224]:
+                - cell "allowed-tools" [ref=e225]:
+                  - paragraph [ref=e226]: allowed-tools
+                - cell "否" [ref=e227]:
+                  - paragraph [ref=e228]:
+                    - code [ref=e229]: 否
+                - cell "预授权工具列表" [ref=e230]:
+                  - paragraph [ref=e231]: 预授权工具列表
+                - cell "空格分隔的字符串，实验性功能" [ref=e232]:
+                  - paragraph [ref=e233]: 空格分隔的字符串，实验性功能
+          - paragraph [ref=e234]:
+            - strong [ref=e235]: 1.2.1 name 字段的命名规则
+          - paragraph [ref=e236]: name 字段有严格的命名规则：
+          - list [ref=e237]:
+            - listitem [ref=e238]: 必须为 1-64 个字符
+            - listitem [ref=e239]:
+              - text: 只能包含 Unicode 小写字母数字字符（
+              - code [ref=e240]: a-z
+              - text: ）和连字符（
+              - code [ref=e241]: "-"
+              - text: ）
+            - listitem [ref=e242]:
+              - text: 不能以连字符 (
+              - code [ref=e243]: "-"
+              - text: )开头或结尾
+            - listitem [ref=e244]:
+              - text: 不得包含连续的连字符（
+              - code [ref=e245]: "--"
+              - text: ）
+            - listitem [ref=e246]: 必须与父目录名称匹配
+          - paragraph [ref=e247]: 合法示例：
+          - generic [ref=e249]:
+            - generic [ref=e254]:
+              - generic [ref=e257]: "name: pdf-processing"
+              - generic [ref=e260]: "name: data-analysis"
+              - generic [ref=e263]: "name: code-review"
+            - generic [ref=e266] [cursor=pointer]: 
+          - paragraph [ref=e269]: 非法示例：
+          - generic [ref=e271]:
+            - generic [ref=e276]:
+              - generic [ref=e279]: "name: PDF-Processing # 不允许大写字母"
+              - generic [ref=e282]: "name: -pdf # 不能以连字符开头"
+              - generic [ref=e285]: "name: pdf--processing # 不允许连续连字符"
+            - generic [ref=e288] [cursor=pointer]: 
+          - paragraph [ref=e291]:
+            - strong [ref=e292]: 1.2.2 description 字段的写法建议
+          - paragraph [ref=e293]: description 应该清晰描述 Skill 的功能和适用场景：
+          - list [ref=e294]:
+            - listitem [ref=e295]: 必须为 1-1024 个字符
+            - listitem [ref=e296]: 应该描述该技能的作用以及何时使用。
+            - listitem [ref=e297]: 应包含有助于代理识别相关任务的特定关键词。
+          - paragraph [ref=e298]: 好的示例：
+          - generic [ref=e300]:
+            - generic [ref=e308]: "description: Extracts text and tables from PDF files, fills PDF forms, and merges multiple PDFs. Use when working with PDF documents or when the user mentions PDFs, forms, or document extraction."
+            - generic [ref=e311] [cursor=pointer]: 
+          - paragraph [ref=e314]: 差的示例：
+          - generic [ref=e316]:
+            - generic [ref=e324]: "description: Helps with PDFs."
+            - generic [ref=e327] [cursor=pointer]: 
+          - paragraph [ref=e330]:
+            - strong [ref=e331]: 1.2.3 Markdown 正文内容
+          - paragraph [ref=e332]: 元数据之后的 Markdown 正文部分就是 Skill 的核心指令。对正文格式没有硬性限制，只要能帮助 AI 有效执行任务即可。
+          - paragraph [ref=e333]: 建议包含以下内容：分步骤的操作说明、输入输出示例、常见边界情况处理。
+          - paragraph [ref=e334]: 建议正文控制在 500 行以内。如果内容较多，可以把详细的参考资料拆分到单独的文件中。
+          - paragraph [ref=e335]:
+            - strong [ref=e336]: 1.2.4 最简示例
+          - paragraph [ref=e337]: 一个最简的 SKILL.md 只需要 name 和 description：
+          - generic [ref=e339]:
+            - generic [ref=e344]:
+              - generic [ref=e347]: "---"
+              - generic [ref=e350]: "name: skill-name"
+              - generic [ref=e353]: "description: A description of what this skill does and when to use it."
+              - generic [ref=e356]: "---"
+            - generic [ref=e359] [cursor=pointer]: 
+          - paragraph [ref=e362]:
+            - strong [ref=e363]: 1.2.5 包含可选字段的示例
+          - generic [ref=e365]:
+            - generic [ref=e370]:
+              - generic [ref=e373]: "---"
+              - generic [ref=e376]: "name: pdf-processing"
+              - generic [ref=e379]: "description: Extract PDF text, fill forms, merge files. Use when handling PDFs."
+              - generic [ref=e382]: "license: Apache-2.0"
+              - generic [ref=e385]: "metadata:"
+              - generic [ref=e388]: "author: example-org"
+              - generic [ref=e391]: "version: \"1.0\""
+              - generic [ref=e394]: "---"
+              - generic [ref=e399]: "# PDF Processing"
+              - generic [ref=e404]: "## When to use this skill"
+              - generic [ref=e407]: Use this skill when the user needs to work with PDF files...
+              - generic [ref=e412]: "## How to extract text"
+              - generic [ref=e415]: 1. Use pdfplumber for text extraction...
+            - generic [ref=e418] [cursor=pointer]: 
+          - paragraph [ref=e421]:
+            - strong [ref=e422]: 1.2.6 文件引用规范
+          - paragraph [ref=e423]: 在 SKILL.md 中引用其他文件时，请使用相对于 Skill 根目录的路径。例如：
+          - list [ref=e424]:
+            - listitem [ref=e425]: 引用参考文档：references/REFERENCE.md
+            - listitem [ref=e426]: 引用脚本：scripts/extract.py
+          - paragraph [ref=e427]: 建议文件引用保持在一层深度，避免深层嵌套的引用链。
+          - paragraph [ref=e428]:
+            - strong [ref=e429]: 1.2.7 可选目录结构
+          - paragraph [ref=e430]:
+            - strong [ref=e431]: scripts/ 目录
+          - paragraph [ref=e432]: 存放 AI 可以运行的可执行代码。脚本应该是自包含的或明确说明依赖关系，包含有用的错误提示信息，并能妥善处理边界情况。常见支持的语言包括 Python、Bash 和 JavaScript。
+          - paragraph [ref=e433]:
+            - strong [ref=e434]: references/ 目录
+          - paragraph [ref=e435]: 存放 AI 在需要时可以读取的补充文档，例如：REFERENCE.md（详细技术参考）、FORMS.md（表单模板或结构化数据格式）、或特定领域的文档（如 finance.md、legal.md）。
+          - paragraph [ref=e436]: 建议每个参考文件保持聚焦，因为 AI 是按需加载这些文件的，文件越小，消耗的上下文越少。
+          - paragraph [ref=e437]:
+            - strong [ref=e438]: assets/ 目录
+          - paragraph [ref=e439]: 存放静态资源文件，包括：模板文件（文档模板、配置模板）、图片（示意图、示例图）、数据文件（查找表、Schema 定义）。
+          - paragraph [ref=e440]
+          - heading "1.3 三层渐进式加载机制" [level=2] [ref=e441]
+          - paragraph [ref=e442]: 这是 Agent Skills 规范最精妙的设计，借鉴了 UI/UX 领域的渐进式信息披露策略：
+          - table [ref=e447]:
+            - rowgroup [ref=e453]:
+              - row "层级 加载内容 加载时机 Token 成本" [ref=e454]:
+                - cell "层级" [ref=e455]:
+                  - paragraph [ref=e456]: 层级
+                - cell "加载内容" [ref=e457]:
+                  - paragraph [ref=e458]: 加载内容
+                - cell "加载时机" [ref=e459]:
+                  - paragraph [ref=e460]: 加载时机
+                - cell "Token 成本" [ref=e461]:
+                  - paragraph [ref=e462]: Token 成本
+              - row "L1 目录层 name + description 会话启动时 每个 Skill ~50-100 tokens" [ref=e463]:
+                - cell "L1 目录层" [ref=e464]:
+                  - paragraph [ref=e465]:
+                    - strong [ref=e466]: L1 目录层
+                - cell "name + description" [ref=e467]:
+                  - paragraph [ref=e468]: name + description
+                - cell "会话启动时" [ref=e469]:
+                  - paragraph [ref=e470]: 会话启动时
+                - cell "每个 Skill ~50-100 tokens" [ref=e471]:
+                  - paragraph [ref=e472]: 每个 Skill ~50-100 tokens
+              - row "L2 指令层 完整 SKILL.md body Skill 被激活时 建议 <5000 tokens" [ref=e473]:
+                - cell "L2 指令层" [ref=e474]:
+                  - paragraph [ref=e475]:
+                    - strong [ref=e476]: L2 指令层
+                - cell "完整 SKILL.md body" [ref=e477]:
+                  - paragraph [ref=e478]: 完整 SKILL.md body
+                - cell "Skill 被激活时" [ref=e479]:
+                  - paragraph [ref=e480]: Skill 被激活时
+                - cell "建议 <5000 tokens" [ref=e481]:
+                  - paragraph [ref=e482]: 建议 <5000 tokens
+              - row "L3 资源层 scripts/、references/、assets/ 中的文件 指令引用时按需 视文件大小" [ref=e483]:
+                - cell "L3 资源层" [ref=e484]:
+                  - paragraph [ref=e485]:
+                    - strong [ref=e486]: L3 资源层
+                - cell "scripts/、references/、assets/ 中的文件" [ref=e487]:
+                  - paragraph [ref=e488]: scripts/、references/、assets/ 中的文件
+                - cell "指令引用时按需" [ref=e489]:
+                  - paragraph [ref=e490]: 指令引用时按需
+                - cell "视文件大小" [ref=e491]:
+                  - paragraph [ref=e492]: 视文件大小
+          - paragraph [ref=e493]:
+            - strong [ref=e494]: 关键价值：
+            - text: 即使安装了 20 个 Skill，初始加载也仅 1000-2000 tokens。相比单体式提示词，上下文使用量减少约 90%。
+          - paragraph [ref=e495]:
+            - strong [ref=e496]: L1 层：
+            - text: Agent 启动时只加载所有 Skill 的 name + description，以 XML 格式注入系统提示词。Agent 此时只知道有哪些 Skill 可用。
+          - paragraph [ref=e497]:
+            - strong [ref=e498]: L2 层：
+            - text: 用户任务匹配某个 Skill 的描述时，Agent 读取完整 SKILL.md body。建议控制在 500 行以内。
+          - paragraph [ref=e499]: L3 层： SKILL.md 中的指令引用外部文件时按需加载。关键是告诉 Agent 何时加载，如「当 API 返回非 200 时，读取 references/api-errors.md」。
+          - paragraph [ref=e500]
+          - heading "1.4 触发机制设计" [level=2] [ref=e501]
+          - paragraph [ref=e502]:
+            - text: Skill 的触发完全依赖 description 字段，由
+            - strong [ref=e503]: 模型自主判断
+            - text: 当前任务是否匹配（Model-driven Activation），而非关键词硬编码匹配。
+          - paragraph [ref=e504]:
+            - strong [ref=e505]: description 写作要点：
+          - list [ref=e506]:
+            - listitem [ref=e507]: 使用祈使语气：「Use this skill when...」
+            - listitem [ref=e508]: 聚焦用户意图，而非 Skill 内部机制
+            - listitem [ref=e509]: 适当「强势」，覆盖用户可能的各种表述
+            - listitem [ref=e510]: 包含关键触发词
+          - paragraph [ref=e511]: 好的例子：
+          - generic [ref=e513]:
+            - generic [ref=e518]:
+              - generic [ref=e521]: Analyze CSV and tabular data files — compute summary statistics,
+              - generic [ref=e524]: add derived columns, generate charts, and clean messy data. Use this
+              - generic [ref=e527]: skill when the user has a CSV, TSV, or Excel file and wants to
+              - generic [ref=e530]: explore, transform, or visualize the data, even if they don't
+              - generic [ref=e533]: explicitly mention "CSV" or "analysis."
+            - generic [ref=e536] [cursor=pointer]: 
+          - paragraph [ref=e539]:
+            - text: 差的例子：
+            - code [ref=e540]: Helps with PDFs.
+          - paragraph [ref=e541]
+          - heading "二、Skill-Creator 核心思想" [level=1] [ref=e542]
+          - heading "2.1 设计哲学" [level=2] [ref=e543]
+          - paragraph [ref=e544]: Skill-Creator是 Anthropic 官方的「用来创建 Skill 的 Skill」，其设计哲学可以概括为：像做机器学习一样做 Prompt Engineering —— 有训练集、测试集、评估指标、迭代优化循环、防过拟合机制。
+          - paragraph [ref=e545]: 它将软件工程中的 CI/CD、A/B 测试、性能基准等最佳实践，完整移植到 Skill 开发领域。
+          - paragraph [ref=e546]:
+            - generic [ref=e553]:
+              - img
+              - text: 
+          - paragraph [ref=e554]
+          - heading "2.2 核心思想" [level=2] [ref=e555]
+          - paragraph [ref=e556]:
+            - strong [ref=e557]: 1.泛化而非过拟合。
+            - text: Skill 要被使用无数次、面对无数种 prompt。如果只为测试用例做针对性修改，skill 就废了。遇到顽固问题，尝试换个隐喻或推荐不同的工作模式，而不是加更多死板约束。
+          - paragraph [ref=e558]:
+            - strong [ref=e559]: 2.解释"为什么"而非堆砌"必须"。
+            - text: 这是全文最核心的洞察。今天的 LLM 有良好的心智理论，与其写满大写的 ALWAYS 和 NEVER，不如解释清楚为什么某件事重要。
+          - paragraph [ref=e560]:
+            - strong [ref=e561]: 3.提取重复模式。
+            - text: 如果所有测试用例中 Agent 都独立写了类似的辅助脚本（比如都写了 create_docx.py），这是一个强信号——应该把这个脚本放到 scripts/ 目录，让 skill 直接调用。
+          - paragraph [ref=e562]
+          - heading "2.3 完整开发生命周期" [level=2] [ref=e563]
+          - paragraph [ref=e564]: Skill-Creator 定义了六个阶段的闭环流程：
+          - paragraph [ref=e565]:
+            - strong [ref=e566]: 阶段一：需求捕获
+            - text: → 理解意图、明确触发场景、确定输出格式、区分客观可验证 vs 主观创意型
+          - paragraph [ref=e567]:
+            - strong [ref=e568]: 阶段二：编写 Skill
+            - text: → 编写 SKILL.md（含 YAML frontmatter + 指令主体）+ 准备辅助资源
+          - paragraph [ref=e569]:
+            - strong [ref=e570]: 阶段三：测试执行
+            - text: → 设计 2-3 个测试用例 → 并行启动 with_skill 和 without_skill 两组子 Agent（A/B 测试）→ 利用等待时间起草量化断言 → 捕获 timing 数据
+          - paragraph [ref=e571]:
+            - strong [ref=e572]: 阶段四：评估与评审
+            - text: → Grader 评分 → 聚合基准数据 → Analyzer 分析模式 → 生成 Eval Viewer → 用户在浏览器中评审 → 收集 feedback.json
+          - paragraph [ref=e573]:
+            - strong [ref=e574]: 阶段五：迭代改进
+            - text: → 分析反馈 → 泛化改进方向（避免过拟合）→ 重写 Skill → 新 iteration 目录 → 回到阶段三
+          - paragraph [ref=e575]:
+            - strong [ref=e576]: 阶段六：优化与发布
+            - text: → Description 优化（run_loop.py）→ 训练/测试集分割 → 自动迭代改进描述 → 校验 → 打包 .skill 文件
+          - paragraph [ref=e577]
+          - heading "2.4 Agent 系统 — 三个专业化角色" [level=2] [ref=e578]
+          - paragraph [ref=e579]: Skill-Creator 设计了三个独立的子 Agent，各司其职，形成完整的评估链。
+          - paragraph [ref=e580]:
+            - strong [ref=e581]: 2.4.1 Grader Agent（评分者）
+          - paragraph [ref=e582]:
+            - strong [ref=e583]: 职责：
+            - text: 评估断言是否通过，并评价评估本身。
+          - paragraph [ref=e584]:
+            - strong [ref=e585]: 8 步流程：
+            - text: 读 Transcript → 检查输出文件 → 评估断言 → 提取隐含声明 → 读执行者笔记 → 评价评估本身 → 写结果 → 读指标数据
+          - paragraph [ref=e586]:
+            - strong [ref=e587]: 最精妙的设计是"自我批评"：
+          - paragraph [ref=e588]: "\"A passing grade on a weak assertion is worse than useless — it creates false confidence.\""
+          - paragraph [ref=e589]: 对一个薄弱断言给出"通过"的评级，其危害比毫无用处还要糟糕——它会制造出虚假的信心。
+          - paragraph [ref=e590]: Grader 不仅评分，还会指出断言本身的问题：
+          - list [ref=e591]:
+            - listitem [ref=e592]: 一个通过的断言是否太容易满足（如只检查文件名存在，不检查内容）
+            - listitem [ref=e593]: 是否有重要结果没有被任何断言覆盖
+            - listitem [ref=e594]: 断言是否无法从可用输出中验证
+          - paragraph [ref=e595]:
+            - strong [ref=e596]: 评分标准：
+          - list [ref=e597]:
+            - listitem [ref=e598]: PASS：不仅要有证据，还要证据反映"真正的任务完成"，而非"表面合规"
+            - listitem [ref=e599]: FAIL：包括"巧合通过"——断言技术上满足了，但底层任务结果是错的
+          - paragraph [ref=e600]:
+            - strong [ref=e601]: 2.4.2 Comparator Agent（盲比较者）
+          - paragraph [ref=e602]:
+            - strong [ref=e603]: 职责：
+            - text: 在不知道哪个输出来自哪个 Skill 的情况下，判断哪个更好。
+          - paragraph [ref=e604]:
+            - strong [ref=e605]: 核心设计——去偏见化：
+            - text: 借鉴医学实验中的双盲实验思想，Comparator 只看到 A 和 B，不知道来源。
+          - paragraph [ref=e606]: 双维度评分体系：
+          - list [ref=e607]:
+            - listitem [ref=e608]:
+              - strong [ref=e609]: 内容维度：
+              - text: 正确性、完整性、准确性（各 1-5 分）
+            - listitem [ref=e610]:
+              - strong [ref=e611]: 结构维度：
+              - text: 组织性、格式化、可用性（各 1-5 分）
+            - listitem [ref=e612]: 综合为 1-10 的总分
+          - paragraph [ref=e613]:
+            - strong [ref=e614]: 判定优先级：
+            - text: 总分 > 断言通过率 > 平局（极少出现）
+          - paragraph [ref=e615]:
+            - strong [ref=e616]: 2.4.3 Analyzer Agent（分析者）
+          - paragraph [ref=e617]: 双重角色：
+          - paragraph [ref=e618]:
+            - strong [ref=e619]: 角色 A — 事后分析器：
+            - text: 在盲比较后"揭盲"，分析 WHY 赢家赢了：
+          - list [ref=e620]:
+            - listitem [ref=e621]: 对比两个 Skill 的指令差异和执行模式差异
+            - listitem [ref=e622]: 生成按优先级排序的改进建议（high / medium / low）
+            - listitem [ref=e623]: 按类别分类：instructions、tools、examples、error_handling、structure、references
+          - paragraph [ref=e624]: 角色 B — 基准分析器：分析聚合统计数据隐藏的模式：
+          - list [ref=e625]:
+            - listitem [ref=e626]: 哪些断言在两种配置下都 100% 通过？
+            - listitem [ref=e627]: 哪些断言高方差？
+            - listitem [ref=e628]: 时间/token 的异常值
+          - paragraph [ref=e629]
+          - heading "2.5 数据流与 JSON Schema 体系" [level=2] [ref=e630]
+          - paragraph [ref=e631]:
+            - code [ref=e632]: references/schemas.md
+            - text: 定义了 7 种 JSON 数据结构，形成完整的数据管道：
+          - generic [ref=e634]:
+            - generic [ref=e639]:
+              - generic [ref=e642]: evals.json ─── 测试定义（prompt + expectations）
+              - generic [ref=e645]: │
+              - generic [ref=e648]: ▼
+              - generic [ref=e651]: timing.json ─── 运行计时（来自子 Agent 完成通知）
+              - generic [ref=e654]: │
+              - generic [ref=e657]: ▼
+              - generic [ref=e660]: metrics.json ─── 执行指标（工具调用次数、文件数等）
+              - generic [ref=e663]: │
+              - generic [ref=e666]: ▼
+              - generic [ref=e669]: grading.json ─── 评分结果（断言通过/失败 + 证据）
+              - generic [ref=e672]: │
+              - generic [ref=e675]: ▼
+              - generic [ref=e678]: benchmark.json ─── 聚合基准（mean ± stddev，delta 对比）
+              - generic [ref=e681]: │
+              - generic [ref=e684]: ▼
+              - generic [ref=e687]: comparison.json ─── 盲比较结果（A/B 评分 + 赢家）
+              - generic [ref=e690]: │
+              - generic [ref=e693]: ▼
+              - generic [ref=e696]: analysis.json ─── 事后分析（改进建议 + 执行模式洞察）
+              - generic [ref=e699]: │
+              - generic [ref=e702]: ▼
+              - generic [ref=e705]: history.json ─── 版本追踪（迭代历史 + 当前最佳）
+            - generic [ref=e708] [cursor=pointer]: 
+          - paragraph [ref=e711]
+          - heading "2.6 实践流程：创建一个 Code Review Skill" [level=2] [ref=e712]
+          - paragraph [ref=e713]: 以下是一个完整的实践案例，展示如何使用 Skill-Creator 创建一个代码审查 Skill。
+          - paragraph [ref=e714]:
+            - strong [ref=e715]: Step 1：启动 Skill-Creator
+          - paragraph [ref=e716]: 在 Claude Code 中直接告诉 Claude 你的需求：
+          - generic [ref=e718]:
+            - generic [ref=e723]:
+              - generic [ref=e726]: 我想创建一个 code-review skill，能够对 Git diff 进行结构化的代码审查，
+              - generic [ref=e729]: 输出包含严重程度分级的审查报告。
+            - generic [ref=e732] [cursor=pointer]: 
+          - paragraph [ref=e735]: Claude 会自动触发 Skill-Creator，开始需求捕获阶段，通过对话帮你明确：
+          - list [ref=e736]:
+            - listitem [ref=e737]: 触发场景（"review my code"、"check this PR" 等）
+            - listitem [ref=e738]: 输出格式（Markdown 报告，按严重程度分级）
+            - listitem [ref=e739]: 是否需要测试用例（代码审查有客观标准，适合量化测试）
+          - paragraph [ref=e740]:
+            - strong [ref=e741]: Step 2：Claude 编写 Skill 草稿
+          - paragraph [ref=e742]:
+            - text: Claude 会基于你的需求编写
+            - code [ref=e743]: SKILL.md
+            - text: ，包括：
+          - list [ref=e744]:
+            - listitem [ref=e745]: YAML frontmatter（name、description）
+            - listitem [ref=e746]: 审查流程指令
+            - listitem [ref=e747]: 输出模板
+            - listitem [ref=e748]: 可能的辅助脚本
+          - paragraph [ref=e749]:
+            - strong [ref=e750]: Step 3：设计测试用例
+          - paragraph [ref=e751]: Claude 会提出 2-3 个测试用例，例如：
+          - generic [ref=e753]:
+            - generic [ref=e758]:
+              - generic [ref=e763]: "{"
+              - generic [ref=e766]: "\"skill_name\": \"code-review\","
+              - generic [ref=e769]: "\"evals\": ["
+              - generic [ref=e772]: "{"
+              - generic [ref=e775]: "\"id\": 1,"
+              - generic [ref=e778]: "\"prompt\": \"Review this PR that adds user authentication with JWT tokens\","
+              - generic [ref=e781]: "\"expected_output\": \"Structured review report with security considerations\""
+              - generic [ref=e784]: "},"
+              - generic [ref=e787]: "{"
+              - generic [ref=e790]: "\"id\": 2,"
+              - generic [ref=e793]: "\"prompt\": \"Check my changes to the database migration script\","
+              - generic [ref=e796]: "\"expected_output\": \"Report highlighting potential data loss risks\""
+              - generic [ref=e799]: "}"
+              - generic [ref=e802]: "]"
+              - generic [ref=e805]: "}"
+            - generic [ref=e808] [cursor=pointer]: 
+          - paragraph [ref=e811]: 你可以修改或添加更多测试用例。
+          - paragraph [ref=e812]:
+            - strong [ref=e813]: Step 4：并行运行测试
+          - paragraph [ref=e814]: Claude 会同时启动 with_skill 和 without_skill 两组子 Agent，在等待期间起草量化断言。
+          - paragraph [ref=e815]:
+            - strong [ref=e816]: Step 5：评审结果
+          - paragraph [ref=e817]:
+            - text: Claude 运行
+            - code [ref=e818]: generate_review.py
+            - text: 在浏览器中打开 Eval Viewer：
+          - list [ref=e819]:
+            - listitem [ref=e820]: Outputs 标签页：逐个查看每个测试用例的输出
+            - listitem [ref=e821]: Benchmark 标签页：对比 with_skill vs without_skill 的通过率、耗时、token 用量
+          - paragraph [ref=e822]: 你在 Viewer 中为每个输出写反馈，完成后点击 "Submit All Reviews"。
+          - table [ref=e827]:
+            - rowgroup [ref=e834]:
+              - row "PEOMPT OUTPUT FORMAL GRADES Benchmark Results Eval Set Review" [ref=e835]:
+                - cell "PEOMPT" [ref=e836]:
+                  - paragraph [ref=e837]: PEOMPT
+                - cell "OUTPUT" [ref=e838]:
+                  - paragraph [ref=e839]: OUTPUT
+                - cell "FORMAL GRADES" [ref=e840]:
+                  - paragraph [ref=e841]: FORMAL GRADES
+                - cell "Benchmark Results" [ref=e842]:
+                  - paragraph [ref=e843]: Benchmark Results
+                - cell "Eval Set Review" [ref=e844]:
+                  - paragraph [ref=e845]: Eval Set Review
+              - row [ref=e846]:
+                - cell [ref=e847]:
+                  - paragraph [ref=e848]
+                  - paragraph [ref=e849]:
+                    - generic [ref=e856]:
+                      - img
+                      - text: 
+                  - paragraph [ref=e857]
+                - cell [ref=e858]:
+                  - paragraph [ref=e859]:
+                    - generic [ref=e866]:
+                      - img
+                      - text: 
+                  - paragraph [ref=e867]
+                - cell [ref=e868]:
+                  - paragraph [ref=e869]:
+                    - generic [ref=e876]:
+                      - img
+                      - text: 
+                  - paragraph [ref=e877]
+                - cell [ref=e878]:
+                  - paragraph [ref=e879]:
+                    - generic [ref=e886]:
+                      - img
+                      - text: 
+                  - paragraph [ref=e887]:
+                    - generic [ref=e894]:
+                      - img
+                      - text: 
+                  - paragraph [ref=e895]
+                - cell [ref=e896]:
+                  - paragraph [ref=e897]:
+                    - generic [ref=e904]:
+                      - img
+                      - text: 
+                  - paragraph [ref=e905]:
+                    - generic [ref=e912]:
+                      - img
+                      - text: 
+                  - paragraph [ref=e913]
+          - generic [ref=e915]:
+            - generic [ref=e920]:
+              - generic [ref=e923]: "["
+              - generic [ref=e926]: "{"
+              - generic [ref=e929]: "\"query\": \"hey can you do a code review on this? i just finished writing the auth module and want to make sure its ok before i open the PR\\n\\n```python\\ndef login(username, password):\\n user = db.query(f\\\"SELECT * FROM users WHERE username = '{username}'\\\")\\n if user and user.password == password:\\n return generate_token(user.id)\\n```\","
+              - generic [ref=e932]: "\"should_trigger\": true"
+              - generic [ref=e935]: "},"
+              - generic [ref=e938]: "{"
+              - generic [ref=e941]: "\"query\": \"我有一个 PR 需要合并，但想先做一下 code review，主要是看看有没有 bug 和性能问题，这是 diff：\\n\\n```diff\\n+async function fetchData(id) {\\n+ const res = fetch('/api/data/' + id)\\n+ return res.json()\\n+}\\n```\","
+              - generic [ref=e944]: "\"should_trigger\": true"
+              - generic [ref=e947]: "},"
+              - generic [ref=e950]: "{"
+              - generic [ref=e953]: "\"query\": \"can you review this PR for me? https://github.com/myorg/myrepo/pull/142 — its a refactor of the payment service, mainly moving from callbacks to async/await. want to know if there are any issues\","
+              - generic [ref=e956]: "\"should_trigger\": true"
+              - generic [ref=e959]: "},"
+              - generic [ref=e962]: "{"
+              - generic [ref=e965]: "\"query\": \"i wrote this golang function yesterday and i'm not sure it's correct, could you take a look and give me feedback?\\n\\n```go\\nfunc processItems(items []Item) error {\\n for _, item := range items {\\n go func() {\\n db.Save(item)\\n }()\\n }\\n return nil\\n}\\n```\","
+              - generic [ref=e968]: "\"should_trigger\": true"
+              - generic [ref=e971]: "},"
+              - generic [ref=e974]: "{"
+              - generic [ref=e977]: "\"query\": \"这段代码怎么样，有什么问题吗\\n\\n```java\\nList<User> users = userRepo.findAll();\\nfor (User u : users) {\\n sendEmail(u.getEmail());\\n}\\n```\","
+              - generic [ref=e980]: "\"should_trigger\": true"
+              - generic [ref=e983]: "},"
+              - generic [ref=e986]: "{"
+              - generic [ref=e989]: "\"query\": \"在合并之前帮我审查一下这个提交，看看有没有安全问题或者不规范的地方\","
+              - generic [ref=e992]: "\"should_trigger\": true"
+              - generic [ref=e995]: "},"
+              - generic [ref=e998]: "{"
+              - generic [ref=e1001]: "\"query\": \"i need someone to look at my changes before i push. its a small fix but touches some tricky concurrency code\","
+              - generic [ref=e1004]: "\"should_trigger\": true"
+              - generic [ref=e1007]: "},"
+              - generic [ref=e1010]: "{"
+              - generic [ref=e1013]: "\"query\": \"please check my code and tell me if there are any bugs or improvements i should make\\n\\n```typescript\\nconst getUser = (id) => {\\n return axios.get('/users/' + id).then(r => r.data)\\n}\\n```\","
+              - generic [ref=e1016]: "\"should_trigger\": true"
+              - generic [ref=e1019]: "},"
+              - generic [ref=e1022]: "{"
+              - generic [ref=e1025]: "\"query\": \"write me a python function that reads a csv file and returns the rows as a list of dicts\","
+              - generic [ref=e1028]: "\"should_trigger\": false"
+              - generic [ref=e1031]: "},"
+              - generic [ref=e1034]: "{"
+              - generic [ref=e1037]: "\"query\": \"whats the difference between == and === in javascript\","
+              - generic [ref=e1040]: "\"should_trigger\": false"
+              - generic [ref=e1043]: "},"
+              - generic [ref=e1046]: "{"
+              - generic [ref=e1049]: "\"query\": \"帮我把这个 Python 函数翻译成 Go 语言\","
+              - generic [ref=e1052]: "\"should_trigger\": false"
+              - generic [ref=e1055]: "},"
+              - generic [ref=e1058]: "{"
+              - generic [ref=e1061]: "\"query\": \"can you help me debug this? my server keeps crashing with a segfault when i call this function but i can't figure out why\","
+              - generic [ref=e1064]: "\"should_trigger\": false"
+              - generic [ref=e1067]: "},"
+              - generic [ref=e1070]: "{"
+              - generic [ref=e1073]: "\"query\": \"i want to refactor this class to use dependency injection instead of hardcoded dependencies, can you help me rewrite it\","
+              - generic [ref=e1076]: "\"should_trigger\": false"
+              - generic [ref=e1079]: "},"
+              - generic [ref=e1082]: "{"
+              - generic [ref=e1085]: "\"query\": \"explain how async/await works in javascript and when i should use it vs promises\","
+              - generic [ref=e1088]: "\"should_trigger\": false"
+              - generic [ref=e1091]: "},"
+              - generic [ref=e1094]: "{"
+              - generic [ref=e1097]: "\"query\": \"can you look at this error and tell me what's wrong: TypeError: Cannot read property 'map' of undefined\","
+              - generic [ref=e1100]: "\"should_trigger\": false"
+              - generic [ref=e1103]: "},"
+              - generic [ref=e1106]: "{"
+              - generic [ref=e1109]: "\"query\": \"write unit tests for this function:\\n\\n```python\\ndef add(a, b):\\n return a + b\\n```\","
+              - generic [ref=e1112]: "\"should_trigger\": false"
+              - generic [ref=e1115]: "},"
+              - generic [ref=e1118]: "{"
+              - generic [ref=e1121]: "\"query\": \"i finished the feature and it works, just want your thoughts on whether the approach makes sense overall — not a formal review, just a sanity check\","
+              - generic [ref=e1124]: "\"should_trigger\": true"
+              - generic [ref=e1127]: "},"
+              - generic [ref=e1130]: "{"
+              - generic [ref=e1133]: "\"query\": \"我想优化这段代码的性能，你觉得哪里可以改进？\","
+              - generic [ref=e1136]: "\"should_trigger\": false"
+              - generic [ref=e1139]: "},"
+              - generic [ref=e1142]: "{"
+              - generic [ref=e1145]: "\"query\": \"我刚写完这个模块，帮我看看写得怎么样，有没有什么明显的问题\","
+              - generic [ref=e1148]: "\"should_trigger\": true"
+              - generic [ref=e1151]: "},"
+              - generic [ref=e1154]: "{"
+              - generic [ref=e1157]: "\"query\": \"can you review my SQL query? im not sure if the joins are correct\\n\\n```sql\\nSELECT u.name, o.total FROM users u, orders o WHERE u.id = o.user_id AND o.status = 'pending'\\n```\","
+              - generic [ref=e1160]: "\"should_trigger\": true"
+              - generic [ref=e1163]: "}"
+              - generic [ref=e1166]: "]"
+            - generic [ref=e1169] [cursor=pointer]: 
+          - paragraph [ref=e1172]:
+            - strong [ref=e1173]: Step 6：迭代改进
+          - paragraph [ref=e1174]:
+            - text: Claude 读取你的
+            - code [ref=e1175]: feedback.json
+            - text: ，分析反馈，改进 Skill，然后重新运行测试。这个循环持续到你满意为止。
+          - generic [ref=e1177]:
+            - generic [ref=e1182]:
+              - generic [ref=e1187]: "{"
+              - generic [ref=e1190]: "\"reviews\": ["
+              - generic [ref=e1193]: "{"
+              - generic [ref=e1196]: "\"run_id\": \"eval-1-java-npe-with_skill\","
+              - generic [ref=e1199]: "\"feedback\": \"\","
+              - generic [ref=e1202]: "\"timestamp\": \"2026-03-20T07:22:12.127Z\""
+              - generic [ref=e1205]: "},"
+              - generic [ref=e1208]: "{"
+              - generic [ref=e1211]: "\"run_id\": \"eval-1-java-npe-without_skill\","
+              - generic [ref=e1214]: "\"feedback\": \"\","
+              - generic [ref=e1217]: "\"timestamp\": \"2026-03-20T07:22:12.127Z\""
+              - generic [ref=e1220]: "},"
+              - generic [ref=e1223]: "{"
+              - generic [ref=e1226]: "\"run_id\": \"eval-2-python-n+1-with_skill\","
+              - generic [ref=e1229]: "\"feedback\": \"\","
+              - generic [ref=e1232]: "\"timestamp\": \"2026-03-20T07:22:12.127Z\""
+              - generic [ref=e1235]: "},"
+              - generic [ref=e1238]: "{"
+              - generic [ref=e1241]: "\"run_id\": \"eval-2-python-n+1-without_skill\","
+              - generic [ref=e1244]: "\"feedback\": \"\","
+              - generic [ref=e1247]: "\"timestamp\": \"2026-03-20T07:22:12.127Z\""
+              - generic [ref=e1250]: "},"
+              - generic [ref=e1253]: "{"
+              - generic [ref=e1256]: "\"run_id\": \"eval-3-typescript-bugs-with_skill\","
+              - generic [ref=e1259]: "\"feedback\": \"\","
+              - generic [ref=e1262]: "\"timestamp\": \"2026-03-20T07:22:12.127Z\""
+              - generic [ref=e1265]: "},"
+              - generic [ref=e1268]: "{"
+              - generic [ref=e1271]: "\"run_id\": \"eval-3-typescript-bugs-without_skill\","
+              - generic [ref=e1274]: "\"feedback\": \"\","
+              - generic [ref=e1277]: "\"timestamp\": \"2026-03-20T07:22:12.127Z\""
+              - generic [ref=e1280]: "}"
+              - generic [ref=e1283]: "],"
+              - generic [ref=e1286]: "\"status\": \"complete\""
+              - generic [ref=e1289]: "}"
+            - generic [ref=e1292] [cursor=pointer]: 
+          - paragraph [ref=e1295]:
+            - strong [ref=e1296]: Step 7：优化 Description
+          - paragraph [ref=e1297]: Skill 内容确定后，运行 description 优化：
+          - generic [ref=e1299]:
+            - generic [ref=e1304]:
+              - generic [ref=e1307]: python -m scripts.run_loop \
+              - generic [ref=e1310]: "--eval-set evals/trigger_eval.json \\"
+              - generic [ref=e1313]: "--skill-path path/to/code-review \\"
+              - generic [ref=e1316]: "--model claude-sonnet-4-20250514 \\"
+              - generic [ref=e1319]: "--max-iterations 5 \\"
+              - generic [ref=e1322]: "--verbose"
+            - generic [ref=e1325] [cursor=pointer]: 
+          - paragraph [ref=e1328]: 这会自动进行训练/测试集分割，迭代优化 description 的触发准确率。
+          - paragraph [ref=e1329]:
+            - strong [ref=e1330]: Step 8：打包发布
+          - generic [ref=e1332]:
+            - generic [ref=e1340]: python -m scripts.package_skill path/to/code-review
+            - generic [ref=e1343] [cursor=pointer]: 
+          - paragraph [ref=e1346]:
+            - text: 生成
+            - code [ref=e1347]: code-review.skill
+            - text: 文件，可以分享给其他人安装使用。
+          - paragraph [ref=e1348]
+          - heading "2.7 优势与局限" [level=2] [ref=e1349]
+          - paragraph [ref=e1350]: 本节结合个人实践体验与社区真实反馈，对 Skill-Creator 进行客观评价。
+          - paragraph [ref=e1351]:
+            - strong [ref=e1352]: 2.7.1. 优势
+          - table [ref=e1357]:
+            - rowgroup [ref=e1361]:
+              - row "优势 说明" [ref=e1362]:
+                - cell "优势" [ref=e1363]:
+                  - paragraph [ref=e1364]: 优势
+                - cell "说明" [ref=e1365]:
+                  - paragraph [ref=e1366]: 说明
+              - row "方法论完整 将 ML 工程实践（训练/测试集分割、防过拟合）引入 Prompt Engineering，是目前最系统化的 Skill 开发框架" [ref=e1367]:
+                - cell "方法论完整" [ref=e1368]:
+                  - paragraph [ref=e1369]: 方法论完整
+                - cell "将 ML 工程实践（训练/测试集分割、防过拟合）引入 Prompt Engineering，是目前最系统化的 Skill 开发框架" [ref=e1370]:
+                  - paragraph [ref=e1371]: 将 ML 工程实践（训练/测试集分割、防过拟合）引入 Prompt Engineering，是目前最系统化的 Skill 开发框架
+              - row "评估体系严谨 三 Agent 协作（Grader + Comparator + Analyzer）+ 量化基准，远超\"凭感觉改 Prompt\"的传统方式" [ref=e1372]:
+                - cell "评估体系严谨" [ref=e1373]:
+                  - paragraph [ref=e1374]: 评估体系严谨
+                - cell "三 Agent 协作（Grader + Comparator + Analyzer）+ 量化基准，远超\"凭感觉改 Prompt\"的传统方式" [ref=e1375]:
+                  - paragraph [ref=e1376]: 三 Agent 协作（Grader + Comparator + Analyzer）+ 量化基准，远超"凭感觉改 Prompt"的传统方式
+              - row "零依赖可移植 纯 Python stdlib + claude CLI，无需安装任何第三方包，任何环境均可运行" [ref=e1377]:
+                - cell "零依赖可移植" [ref=e1378]:
+                  - paragraph [ref=e1379]: 零依赖可移植
+                - cell "纯 Python stdlib + claude CLI，无需安装任何第三方包，任何环境均可运行" [ref=e1380]:
+                  - paragraph [ref=e1381]:
+                    - text: 纯 Python stdlib +
+                    - code [ref=e1382]: claude
+                    - text: CLI，无需安装任何第三方包，任何环境均可运行
+              - row "人机协作设计 Eval Viewer 让人类判断质量，自动化处理重复工作，分工合理" [ref=e1383]:
+                - cell "人机协作设计" [ref=e1384]:
+                  - paragraph [ref=e1385]: 人机协作设计
+                - cell "Eval Viewer 让人类判断质量，自动化处理重复工作，分工合理" [ref=e1386]:
+                  - paragraph [ref=e1387]: Eval Viewer 让人类判断质量，自动化处理重复工作，分工合理
+              - row "自举式架构 用 Skill 框架管理 Skill 生命周期，设计优雅，具有示范意义" [ref=e1388]:
+                - cell "自举式架构" [ref=e1389]:
+                  - paragraph [ref=e1390]: 自举式架构
+                - cell "用 Skill 框架管理 Skill 生命周期，设计优雅，具有示范意义" [ref=e1391]:
+                  - paragraph [ref=e1392]: 用 Skill 框架管理 Skill 生命周期，设计优雅，具有示范意义
+          - paragraph [ref=e1393]:
+            - strong [ref=e1394]: 2.7.2. 已知局限与社区反馈
+          - heading "问题一：Token 消耗极高，成本不透明" [level=5] [ref=e1395]:
+            - strong [ref=e1396]: 问题一：Token 消耗极高，成本不透明
+          - paragraph [ref=e1397]: 这是社区反映最集中的问题，有真实数据为证。
+          - paragraph [ref=e1398]:
+            - strong [ref=e1399]: "GitHub Issue #514"
+            - text: （2026-03-04，来自
+            - code [ref=e1400]: anthropics/claude-plugins-official
+            - text: ）：
+          - paragraph [ref=e1401]: "\"A single description optimization run with 20 eval queries (3 runs each = 60 sessions) consumed ~69% of a 5-hour time block, with 0 actionable results.\"— jroy-poka, GitHub Issue #514"
+          - paragraph [ref=e1402]:
+            - strong [ref=e1403]: 问题根源：
+            - code [ref=e1404]: SKILL.md
+            - text: 第 385 行指示
+            - code [ref=e1405]: run_loop.py
+            - text: 使用
+            - code [ref=e1406]: "--model <session-model>"
+            - text: ，即当前会话所用的模型。当用户使用 Opus 会话时，description 优化会启动 60+ 个 Opus 级别的
+            - code [ref=e1407]: claude -p
+            - text: 子进程，而触发检测本质上只是一个"是/否"的二元信号，完全不需要 Opus 级别的推理能力。
+          - paragraph [ref=e1408]:
+            - strong [ref=e1409]: 量化影响：
+          - list [ref=e1410]:
+            - listitem [ref=e1411]: 20 个评估查询 × 3 次运行 = 60 个并发 Opus 会话
+            - listitem [ref=e1412]: 单次优化循环消耗约 69% 的 5 小时配额
+            - listitem [ref=e1413]: 用户在触发前对成本完全没有预期
+          - paragraph [ref=e1414]:
+            - text: 社区建议的修复方案是将 eval 默认模型改为
+            - code [ref=e1415]: claude-haiku
+            - text: （成本降低 10-20 倍，触发检测精度等价），但截至当前该问题仍处于 Open 状态。
+          - heading "问题二：流程冗长，用户需多次确认" [level=5] [ref=e1416]:
+            - strong [ref=e1417]: 问题二：流程冗长，用户需多次确认
+          - paragraph [ref=e1418]: Skill-Creator 的完整流程涉及大量交互节点：
+          - generic [ref=e1420]:
+            - generic [ref=e1425]:
+              - generic [ref=e1428]: 需求确认 → Skill 草稿确认 → 测试用例确认 → 并行运行（等待）
+              - generic [ref=e1431]: → 断言起草确认 → 评审 Viewer → 反馈提交 → 改进确认 → 再次运行...
+            - generic [ref=e1434] [cursor=pointer]: 
+          - paragraph [ref=e1437]: 每一轮迭代都需要用户：
+          - paragraph [ref=e1438]: 1.在浏览器中逐个查看测试用例输出
+          - paragraph [ref=e1439]: 2.为每个输出撰写文字反馈
+          - paragraph [ref=e1440]:
+            - text: 3.提交
+            - code [ref=e1441]: feedback.json
+          - paragraph [ref=e1442]: 4.回到对话告知 Claude 已完成
+          - paragraph [ref=e1443]: 对于简单的 Skill（如一个格式转换工具），这套流程的开销远超 Skill 本身的价值。社区中有用户直接表示："对于简单需求，直接手写 SKILL.md 比用 skill-creator 快得多。"
+          - heading "问题三：子任务数量庞大，并发管理复杂" [level=5] [ref=e1444]:
+            - strong [ref=e1445]: 问题三：子任务数量庞大，并发管理复杂
+          - paragraph [ref=e1446]: 一次完整的评测包含：
+          - list [ref=e1447]:
+            - listitem [ref=e1448]: N 个测试用例 × 2（with_skill + without_skill） 个执行子 Agent
+            - listitem [ref=e1449]: N 个 Grader 子 Agent（评分）
+            - listitem [ref=e1450]: 1 个 Analyzer 子 Agent（分析）
+            - listitem [ref=e1451]: 可选：N 个 Comparator 子 Agent（盲比较）
+          - paragraph [ref=e1452]: 以 3 个测试用例为例，单轮评测就会产生 6 个执行 + 3 个评分 + 1 个分析 = 10 个子 Agent。多轮迭代下子任务数量呈线性增长，在 Claude Code 的子 Agent 并发限制下容易出现排队等待。
+          - heading "问题四：Description 优化对\"操作型 Skill\"效果有限" [level=5] [ref=e1453]:
+            - strong [ref=e1454]: 问题四：Description 优化对"操作型 Skill"效果有限
+          - paragraph [ref=e1455]: "GitHub Issue #514 中还指出了一个深层问题："
+          - paragraph [ref=e1456]: "\"operational workflow skills show 0% recall regardless of description quality\""
+          - paragraph [ref=e1457]: 对于某些"操作型"Skill（如"运行部署脚本"、"生成日报"），Claude 本身就能直接处理，不会主动去查询 Skill，导致触发率始终为 0%，description 优化完全无效。这类 Skill 的触发机制与 description 质量无关，而是取决于任务的复杂度和专业性。
+          - heading "问题五：Skill 膨胀风险" [level=5] [ref=e1458]:
+            - strong [ref=e1459]: 问题五：Skill 膨胀风险
+          - paragraph [ref=e1460]: 来自 Medium 社区的观察（Claude Code Skills Deep Dive）：
+          - paragraph [ref=e1461]: "\"A 5KB skill balloons to 50KB. Response times slow to a crawl. Maintenance becomes a nightmare. Your once-elegant skill has become a bloated monster.\""
+          - paragraph [ref=e1462]: 随着迭代改进，Skill 有膨胀倾向——每次改进都可能增加新的指令、示例、边界情况处理，最终导致 Skill 体积失控，违背"保持精简"的初衷。
+          - heading "问题六：学习曲线陡峭" [level=5] [ref=e1463]:
+            - strong [ref=e1464]: 问题六：学习曲线陡峭
+          - paragraph [ref=e1465]: Skill-Creator 的完整使用需要理解：
+          - list [ref=e1466]:
+            - listitem [ref=e1467]: Skill 的三层加载机制
+            - listitem [ref=e1468]: JSON Schema 体系（7 种数据结构）
+            - listitem [ref=e1469]: 子 Agent 的工作原理
+            - listitem [ref=e1470]: 触发率评估的统计含义
+            - listitem [ref=e1471]: 训练/测试集分割的防过拟合逻辑
+          - paragraph [ref=e1472]: 对于非技术背景的用户，这套体系的认知负担相当高。
+          - paragraph [ref=e1473]
+          - heading "三、Writing-Skills 核心思想" [level=1] [ref=e1474]
+          - heading "3.1 Superpowers 框架概述" [level=2] [ref=e1475]
+          - paragraph [ref=e1476]: Superpowers 是一个专门为 Claude Code、Cursor、Codex 等 AI 编程助手设计的结构化工作流框架，定位是「Vibe Engineering」——在 AI 快速迭代的基础上强制注入软件工程纪律。
+          - paragraph [ref=e1477]: 框架包含 14 个可组合的 Skill，覆盖从头脑风暴到代码交付的完整开发流程。核心理念：
+          - list [ref=e1478]:
+            - listitem [ref=e1479]: 测试先行（Test-Driven Development）
+            - listitem [ref=e1480]: 系统化优于随机化（Process over Guessing）
+            - listitem [ref=e1481]: 复杂度缩减（Simplicity as Primary Goal）
+            - listitem [ref=e1482]: 证据优于声明（Verify before Declaring Success）
+          - paragraph [ref=e1483]
+          - heading "3.2 Writing-Skills 的核心定位" [level=2] [ref=e1484]
+          - paragraph [ref=e1485]: Writing-Skills 是 Superpowers 中的元技能——教 Agent 如何创建新的 Skill。它与 Anthropic 的 skill-creator 目标相似，但方法论截然不同。
+          - paragraph [ref=e1486]: 文件结构：
+          - generic [ref=e1488]:
+            - generic [ref=e1493]:
+              - generic [ref=e1496]: writing-skills/
+              - generic [ref=e1499]: "├── SKILL.md # 核心指令"
+              - generic [ref=e1502]: "├── anthropic-best-practices.md # Anthropic 官方最佳实践摘要"
+              - generic [ref=e1505]: "├── persuasion-principles.md # 说服心理学原则"
+              - generic [ref=e1508]: "├── testing-skills-with-subagents.md # TDD 测试方法论"
+              - generic [ref=e1511]: "├── graphviz-conventions.dot # 图表约定"
+              - generic [ref=e1514]: "├── render-graphs.js # 图表渲染脚本"
+              - generic [ref=e1517]: "└── examples/ # 示例"
+            - generic [ref=e1520] [cursor=pointer]: 
+          - table [ref=e1527]:
+            - rowgroup [ref=e1531]:
+              - row "TDD 概念 Skill 创建" [ref=e1532]:
+                - cell "TDD 概念" [ref=e1533]:
+                  - paragraph [ref=e1534]: TDD 概念
+                - cell "Skill 创建" [ref=e1535]:
+                  - paragraph [ref=e1536]: Skill 创建
+              - row "测试用例 压力场景 + 子代理" [ref=e1537]:
+                - cell "测试用例" [ref=e1538]:
+                  - paragraph [ref=e1539]: 测试用例
+                - cell "压力场景 + 子代理" [ref=e1540]:
+                  - paragraph [ref=e1541]: 压力场景 + 子代理
+              - row "生产代码 Skill 文档（SKILL.md）" [ref=e1542]:
+                - cell "生产代码" [ref=e1543]:
+                  - paragraph [ref=e1544]: 生产代码
+                - cell "Skill 文档（SKILL.md）" [ref=e1545]:
+                  - paragraph [ref=e1546]: Skill 文档（SKILL.md）
+              - row "测试失败（RED） Agent 在没有 Skill 时违反规则（基线）" [ref=e1547]:
+                - cell "测试失败（RED）" [ref=e1548]:
+                  - paragraph [ref=e1549]: 测试失败（RED）
+                - cell "Agent 在没有 Skill 时违反规则（基线）" [ref=e1550]:
+                  - paragraph [ref=e1551]: Agent 在没有 Skill 时违反规则（基线）
+              - row "测试通过（GREEN） Agent 在有 Skill 时遵守规则" [ref=e1552]:
+                - cell "测试通过（GREEN）" [ref=e1553]:
+                  - paragraph [ref=e1554]: 测试通过（GREEN）
+                - cell "Agent 在有 Skill 时遵守规则" [ref=e1555]:
+                  - paragraph [ref=e1556]: Agent 在有 Skill 时遵守规则
+              - row "重构（REFACTOR） 堵住漏洞，同时保持合规" [ref=e1557]:
+                - cell "重构（REFACTOR）" [ref=e1558]:
+                  - paragraph [ref=e1559]: 重构（REFACTOR）
+                - cell "堵住漏洞，同时保持合规" [ref=e1560]:
+                  - paragraph [ref=e1561]: 堵住漏洞，同时保持合规
+          - paragraph [ref=e1562]
+          - heading "3.3 RED-GREEN-REFACTOR 循环" [level=2] [ref=e1563]
+          - paragraph [ref=e1564]:
+            - strong [ref=e1565]: RED 阶段：基线测试
+          - paragraph [ref=e1566]: 不带 Skill 运行压力场景，记录 Agent 的确切行为和合理化借口：
+          - generic [ref=e1568]:
+            - generic [ref=e1573]:
+              - generic [ref=e1576]: 场景示例：
+              - generic [ref=e1579]: 你花了 4 小时实现了一个功能，完美运行。
+              - generic [ref=e1582]: 你手动测试了所有边界情况。现在是下午 6 点，6:30 有晚餐。
+              - generic [ref=e1585]: 明天 9 点有代码评审。你刚意识到没写测试。
+              - generic [ref=e1590]: 选项：
+              - generic [ref=e1593]: A) 删除代码，明天用 TDD 重新开始
+              - generic [ref=e1596]: B) 现在提交，明天写测试
+              - generic [ref=e1599]: C) 现在写测试（延迟 30 分钟）
+            - generic [ref=e1602] [cursor=pointer]: 
+          - paragraph [ref=e1605]: 不带 TDD Skill 运行，Agent 选择 B 或 C 并合理化：
+          - list [ref=e1606]:
+            - listitem [ref=e1607]: "\"我已经手动测试过了\""
+            - listitem [ref=e1608]: "\"先写后测也能达到同样目的\""
+            - listitem [ref=e1609]: "\"删除是浪费\""
+          - paragraph [ref=e1610]: 现在你知道 Skill 必须防止什么了。
+          - paragraph [ref=e1611]:
+            - strong [ref=e1612]: GREEN 阶段：编写最小 Skill
+          - paragraph [ref=e1613]: 针对基线中发现的具体失败编写 Skill，不要为假设的情况添加额外内容。
+          - paragraph [ref=e1614]:
+            - strong [ref=e1615]: REFACTOR 阶段：堵住漏洞
+          - paragraph [ref=e1616]: Agent 找到新的合理化借口？逐一添加明确的反驳：
+          - table [ref=e1621]:
+            - rowgroup [ref=e1625]:
+              - row "借口 现实" [ref=e1626]:
+                - cell "借口" [ref=e1627]:
+                  - paragraph [ref=e1628]: 借口
+                - cell "现实" [ref=e1629]:
+                  - paragraph [ref=e1630]: 现实
+              - row "\"保留作为参考，先写测试\" 你会改编它。那就是事后测试。删除就是删除。" [ref=e1631]:
+                - cell "\"保留作为参考，先写测试\"" [ref=e1632]:
+                  - paragraph [ref=e1633]: "\"保留作为参考，先写测试\""
+                - cell "你会改编它。那就是事后测试。删除就是删除。" [ref=e1634]:
+                  - paragraph [ref=e1635]: 你会改编它。那就是事后测试。删除就是删除。
+              - row "\"我遵循的是精神而非字面\" 违反字面就是违反精神。" [ref=e1636]:
+                - cell "\"我遵循的是精神而非字面\"" [ref=e1637]:
+                  - paragraph [ref=e1638]: "\"我遵循的是精神而非字面\""
+                - cell "违反字面就是违反精神。" [ref=e1639]:
+                  - paragraph [ref=e1640]: 违反字面就是违反精神。
+              - row "\"太简单不需要测试\" 简单的代码也会出错。测试只需 30 秒。" [ref=e1641]:
+                - cell "\"太简单不需要测试\"" [ref=e1642]:
+                  - paragraph [ref=e1643]: "\"太简单不需要测试\""
+                - cell "简单的代码也会出错。测试只需 30 秒。" [ref=e1644]:
+                  - paragraph [ref=e1645]: 简单的代码也会出错。测试只需 30 秒。
+          - paragraph [ref=e1646]
+          - heading "3.4 四种 Skill 类型及对应测试策略" [level=2] [ref=e1647]
+          - paragraph [ref=e1648]: 不同类型的 Skill 需要不同的测试方法：
+          - table [ref=e1653]:
+            - rowgroup [ref=e1659]:
+              - row "Skill 类型 定义 测试方法 成功标准" [ref=e1660]:
+                - cell "Skill 类型" [ref=e1661]:
+                  - paragraph [ref=e1662]: Skill 类型
+                - cell "定义" [ref=e1663]:
+                  - paragraph [ref=e1664]: 定义
+                - cell "测试方法" [ref=e1665]:
+                  - paragraph [ref=e1666]: 测试方法
+                - cell "成功标准" [ref=e1667]:
+                  - paragraph [ref=e1668]: 成功标准
+              - row "纪律执行型 强制遵守规则（如 TDD、验证要求） 压力场景：时间+沉没成本+疲劳组合施压 Agent 在最大压力下仍遵守规则" [ref=e1669]:
+                - cell "纪律执行型" [ref=e1670]:
+                  - paragraph [ref=e1671]: 纪律执行型
+                - cell "强制遵守规则（如 TDD、验证要求）" [ref=e1672]:
+                  - paragraph [ref=e1673]: 强制遵守规则（如 TDD、验证要求）
+                - cell "压力场景：时间+沉没成本+疲劳组合施压" [ref=e1674]:
+                  - paragraph [ref=e1675]: 压力场景：时间+沉没成本+疲劳组合施压
+                - cell "Agent 在最大压力下仍遵守规则" [ref=e1676]:
+                  - paragraph [ref=e1677]: Agent 在最大压力下仍遵守规则
+              - row "技术指导型 具体方法的操作指南（如条件等待、根因追踪） 应用场景：能否正确应用？边界情况？指令有无缺口？ Agent 成功将技术应用到新场景" [ref=e1678]:
+                - cell "技术指导型" [ref=e1679]:
+                  - paragraph [ref=e1680]: 技术指导型
+                - cell "具体方法的操作指南（如条件等待、根因追踪）" [ref=e1681]:
+                  - paragraph [ref=e1682]: 具体方法的操作指南（如条件等待、根因追踪）
+                - cell "应用场景：能否正确应用？边界情况？指令有无缺口？" [ref=e1683]:
+                  - paragraph [ref=e1684]: 应用场景：能否正确应用？边界情况？指令有无缺口？
+                - cell "Agent 成功将技术应用到新场景" [ref=e1685]:
+                  - paragraph [ref=e1686]: Agent 成功将技术应用到新场景
+              - row "思维模式型 解决问题的心智模型（如降低复杂度、信息隐藏） 识别场景：能否识别何时适用？何时不适用？ Agent 正确判断何时/如何应用模式" [ref=e1687]:
+                - cell "思维模式型" [ref=e1688]:
+                  - paragraph [ref=e1689]: 思维模式型
+                - cell "解决问题的心智模型（如降低复杂度、信息隐藏）" [ref=e1690]:
+                  - paragraph [ref=e1691]: 解决问题的心智模型（如降低复杂度、信息隐藏）
+                - cell "识别场景：能否识别何时适用？何时不适用？" [ref=e1692]:
+                  - paragraph [ref=e1693]: 识别场景：能否识别何时适用？何时不适用？
+                - cell "Agent 正确判断何时/如何应用模式" [ref=e1694]:
+                  - paragraph [ref=e1695]: Agent 正确判断何时/如何应用模式
+              - row "参考资料型 API 文档、命令参考、库指南 检索场景：能否找到正确信息？常见用例是否覆盖？ Agent 找到并正确应用参考信息" [ref=e1696]:
+                - cell "参考资料型" [ref=e1697]:
+                  - paragraph [ref=e1698]: 参考资料型
+                - cell "API 文档、命令参考、库指南" [ref=e1699]:
+                  - paragraph [ref=e1700]: API 文档、命令参考、库指南
+                - cell "检索场景：能否找到正确信息？常见用例是否覆盖？" [ref=e1701]:
+                  - paragraph [ref=e1702]: 检索场景：能否找到正确信息？常见用例是否覆盖？
+                - cell "Agent 找到并正确应用参考信息" [ref=e1703]:
+                  - paragraph [ref=e1704]: Agent 找到并正确应用参考信息
+          - paragraph [ref=e1705]: 关键区别：纪律执行型 Skill 需要最严格的测试（压力场景 + 合理化借口反驳），而参考资料型 Skill 主要测试信息的可发现性和完整性。
+          - paragraph [ref=e1706]
+          - heading "3.5 Description 的关键要点" [level=2] [ref=e1707]
+          - paragraph [ref=e1708]: 这是 writing-skills 中最重要的发现之一。
+          - paragraph [ref=e1709]:
+            - strong [ref=e1710]: Description 只应描述触发条件，绝不要总结 Skill 的工作流程。
+          - paragraph [ref=e1711]: 为什么？ 测试发现，当 description 总结了工作流程时，Agent 可能直接按 description 执行，而跳过阅读完整的 Skill 内容。
+          - generic [ref=e1713]:
+            - generic [ref=e1718]:
+              - generic [ref=e1721]: "# ❌ 总结了工作流 → Agent 可能走捷径，跳过 Skill 正文"
+              - generic [ref=e1724]: "description: Use when executing plans - dispatches subagent per task"
+              - generic [ref=e1727]: with code review between tasks
+              - generic [ref=e1732]: "# ✅ 只有触发条件 → Agent 会完整阅读 Skill"
+              - generic [ref=e1735]: "description: Use when executing implementation plans with independent"
+              - generic [ref=e1738]: "tasks in the current sessioniption: Use when executing plans - dispatches subagent per task with code review between tasks# ✅ 只有触发条件 → Agent 会完整阅读 Skilldescription: Use when executing implementation plans with independent tasks in the current session"
+            - generic [ref=e1741] [cursor=pointer]: 
+          - paragraph [ref=e1744]
+          - heading "3.6 Anthropic 官方最佳实践要点" [level=2] [ref=e1745]
+          - paragraph [ref=e1746]: 来源：writing-skills 中引用的 anthropic-best-practices.md
+          - paragraph [ref=e1747]:
+            - strong [ref=e1748]: 简洁是关键
+          - paragraph [ref=e1749]: Context window 是公共资源。默认假设 Claude 已经很聪明，只添加它不知道的信息：
+          - generic [ref=e1751]:
+            - generic [ref=e1756]:
+              - generic [ref=e1761]: "# ✅ 简洁（~50 tokens）"
+              - generic [ref=e1764]: "## Extract PDF text"
+              - generic [ref=e1767]: "Use pdfplumber for text extraction:"
+              - generic [ref=e1770]: import pdfplumber
+              - generic [ref=e1773]: "with pdfplumber.open(\"file.pdf\") as pdf:"
+              - generic [ref=e1776]: text = pdf.pages[0].extract_text()
+              - generic [ref=e1781]: "# ❌ 冗余（~150 tokens）"
+              - generic [ref=e1784]: "## Extract PDF text"
+              - generic [ref=e1787]: PDF (Portable Document Format) files are a common file format...
+              - generic [ref=e1790]: To extract text from a PDF, you'll need to use a library...
+              - generic [ref=e1793]: There are many libraries available...
+            - generic [ref=e1796] [cursor=pointer]: 
+          - paragraph [ref=e1799]:
+            - strong [ref=e1800]: 设置合适的自由度
+          - table [ref=e1805]:
+            - rowgroup [ref=e1810]:
+              - row "自由度 适用场景 示例" [ref=e1811]:
+                - cell "自由度" [ref=e1812]:
+                  - paragraph [ref=e1813]: 自由度
+                - cell "适用场景" [ref=e1814]:
+                  - paragraph [ref=e1815]: 适用场景
+                - cell "示例" [ref=e1816]:
+                  - paragraph [ref=e1817]: 示例
+              - row "高 多种方法都有效 代码审查流程" [ref=e1818]:
+                - cell "高" [ref=e1819]:
+                  - paragraph [ref=e1820]: 高
+                - cell "多种方法都有效" [ref=e1821]:
+                  - paragraph [ref=e1822]: 多种方法都有效
+                - cell "代码审查流程" [ref=e1823]:
+                  - paragraph [ref=e1824]: 代码审查流程
+              - row "中 有首选模式但允许变化 带参数的脚本模板" [ref=e1825]:
+                - cell "中" [ref=e1826]:
+                  - paragraph [ref=e1827]: 中
+                - cell "有首选模式但允许变化" [ref=e1828]:
+                  - paragraph [ref=e1829]: 有首选模式但允许变化
+                - cell "带参数的脚本模板" [ref=e1830]:
+                  - paragraph [ref=e1831]: 带参数的脚本模板
+              - row "低 操作脆弱、一致性关键 数据库迁移命令" [ref=e1832]:
+                - cell "低" [ref=e1833]:
+                  - paragraph [ref=e1834]: 低
+                - cell "操作脆弱、一致性关键" [ref=e1835]:
+                  - paragraph [ref=e1836]: 操作脆弱、一致性关键
+                - cell "数据库迁移命令" [ref=e1837]:
+                  - paragraph [ref=e1838]: 数据库迁移命令
+          - paragraph [ref=e1839]:
+            - strong [ref=e1840]: 工作流与反馈循环
+          - paragraph [ref=e1841]: 对于复杂任务，Skill 中应包含清晰的工作流步骤和反馈循环：
+          - paragraph [ref=e1842]: 工作流模式：将复杂操作拆分为清晰的顺序步骤，提供可追踪的检查清单：
+          - generic [ref=e1844]:
+            - generic [ref=e1849]:
+              - generic [ref=e1852]: "## 研究综合工作流"
+              - generic [ref=e1855]: 复制此清单并跟踪进度：
+              - generic [ref=e1858]: "- [ ] Step 1: 阅读所有源文档"
+              - generic [ref=e1861]: "- [ ] Step 2: 识别关键主题"
+              - generic [ref=e1864]: "- [ ] Step 3: 交叉验证论点"
+              - generic [ref=e1867]: "- [ ] Step 4: 创建结构化摘要"
+              - generic [ref=e1870]: "- [ ] Step 5: 验证引用"
+            - generic [ref=e1873] [cursor=pointer]: 
+          - paragraph [ref=e1876]:
+            - strong [ref=e1877]: 反馈循环模式：
+            - text: 运行验证器 → 修复错误 → 重复，直到通过。这个模式能显著提升输出质量：
+          - generic [ref=e1879]:
+            - generic [ref=e1884]:
+              - generic [ref=e1889]: "## 文档编辑流程"
+              - generic [ref=e1892]: 1. 编辑 document.xml
+              - generic [ref=e1895]: 2. 立即验证：python validate.py unpacked_dir/
+              - generic [ref=e1898]: 3. 如果验证失败：
+              - generic [ref=e1901]: "- 仔细阅读错误信息"
+              - generic [ref=e1904]: "- 修复 XML 中的问题"
+              - generic [ref=e1907]: "- 再次运行验证"
+              - generic [ref=e1910]: 4. 仅在验证通过后才继续
+              - generic [ref=e1913]: 5. 重新打包：python pack.py unpacked_dir/ output.docx
+            - generic [ref=e1916] [cursor=pointer]: 
+          - paragraph [ref=e1919]:
+            - strong [ref=e1920]: 关键：
+            - text: "验证脚本的错误信息要具体（如 \"Field 'signature_date' not found. Available fields: customer_name, order_total\"），帮助 Agent 快速定位和修复问题。"
+          - paragraph [ref=e1921]:
+            - strong [ref=e1922]: 迭代开发模式
+          - paragraph [ref=e1923]: 最有效的 Skill 开发过程：
+          - generic [ref=e1925]:
+            - generic [ref=e1930]:
+              - generic [ref=e1933]: Claude A（专家）帮你设计和优化 Skill
+              - generic [ref=e1936]: ↓
+              - generic [ref=e1939]: Claude B（测试者）用 Skill 执行真实任务
+              - generic [ref=e1942]: ↓
+              - generic [ref=e1945]: 观察 Claude B 的行为，发现问题
+              - generic [ref=e1948]: ↓
+              - generic [ref=e1951]: 回到 Claude A 改进 Skill
+              - generic [ref=e1954]: ↓
+              - generic [ref=e1957]: 重复直到满意
+            - generic [ref=e1960] [cursor=pointer]: 
+          - paragraph [ref=e1963]
+          - heading "四、Skill 设计模式（Google）" [level=1] [ref=e1964]
+          - paragraph [ref=e1965]: 来源：Google Cloud Tech
+          - paragraph [ref=e1966]: 规范告诉我们"Skill 长什么样"，但没告诉我们"Skill 内部的逻辑该怎么设计"。一个封装 FastAPI 规范的 Skill 和一个分 4 步执行的文档流水线 Skill，虽然外表都叫 SKILL.md，但内部结构完全不是一回事。
+          - paragraph [ref=e1967]: Google ADK 团队研究了生态中各种 Skill 的实现方式，从 Anthropic 仓库到 Vercel 和 Google 内部指南，总结出 5 种反复出现的设计模式。
+          - paragraph [ref=e1968]:
+            - generic [ref=e1975]:
+              - img
+              - text: 
+          - paragraph [ref=e1976]
+          - heading "4.1 五种 Skill 设计模式" [level=2] [ref=e1977]
+          - paragraph [ref=e1978]:
+            - strong [ref=e1979]: 模式一：Tool Wrapper — 给 Agent 装"技能包"
+          - paragraph [ref=e1980]:
+            - strong [ref=e1981]: 核心逻辑：
+            - text: 让 Agent 在需要时才加载特定领域的知识，而不是把所有东西塞进 system prompt。
+          - generic [ref=e1983]:
+            - generic [ref=e1988]:
+              - generic [ref=e1991]: "---"
+              - generic [ref=e1994]: "name: api-expert"
+              - generic [ref=e1997]: "description: FastAPI 开发最佳实践与规范。适用于构建、审查或调试 FastAPI 应用程序时使用。"
+              - generic [ref=e2000]: "---"
+              - generic [ref=e2003]: "## 核心规范"
+              - generic [ref=e2006]: 加载 'references/conventions.md' 获取完整规范列表。
+              - generic [ref=e2011]: "## 审查代码时"
+              - generic [ref=e2014]: 1. 加载规范参考文件
+              - generic [ref=e2017]: 2. 对照每条规范逐一检查用户代码
+              - generic [ref=e2020]: 3. 针对每处违规，引用具体规则并给出修改建议
+            - generic [ref=e2023] [cursor=pointer]: 
+          - paragraph [ref=e2026]:
+            - strong [ref=e2027]: 关键：
+            - text: SKILL.md 本身不包含完整规范，而是告诉 Agent 去哪里加载规范。
+          - paragraph [ref=e2028]:
+            - strong [ref=e2029]: 适用场景：
+            - text: 封装框架/库的编码规范、团队内部代码风格指南、特定技术栈的最佳实践。
+          - paragraph [ref=e2030]:
+            - strong [ref=e2031]: 模式二：Generator — 填空题式文档生成
+          - paragraph [ref=e2032]:
+            - strong [ref=e2033]: 核心逻辑：
+            - text: 用模板 + 风格指南强制输出一致性。
+          - generic [ref=e2035]:
+            - generic [ref=e2040]:
+              - generic [ref=e2043]: "---"
+              - generic [ref=e2046]: "name: report-generator"
+              - generic [ref=e2049]: "description: 以 Markdown 格式生成结构化技术报告。"
+              - generic [ref=e2052]: "---"
+              - generic [ref=e2055]: 第一步：加载 'references/style-guide.md'，获取语气和格式规范。
+              - generic [ref=e2058]: 第二步：加载 'assets/report-template.md'，获取所需的输出结构。
+              - generic [ref=e2061]: 第三步：向用户询问缺失信息：
+              - generic [ref=e2064]: "- 主题或议题"
+              - generic [ref=e2067]: "- 关键发现或数据要点"
+              - generic [ref=e2070]: "- 目标受众"
+              - generic [ref=e2073]: 第四步：按照风格指南规范填写模板。
+              - generic [ref=e2076]: 第五步：返回已完成的报告。
+            - generic [ref=e2079] [cursor=pointer]: 
+          - paragraph [ref=e2082]:
+            - strong [ref=e2083]: 关键：
+            - text: Step 3 的主动提问——Agent 不会瞎猜，缺什么直接问。
+          - paragraph [ref=e2084]:
+            - strong [ref=e2085]: 适用场景：
+            - text: 标准化技术文档生成、API 文档自动生成、项目脚手架。
+          - paragraph [ref=e2086]:
+            - strong [ref=e2087]: 模式三：Reviewer — 代码审查自动化
+          - paragraph [ref=e2088]:
+            - strong [ref=e2089]: 核心逻辑：
+            - text: 把"查什么"和"怎么查"分离。检查清单独立维护，Agent 只负责执行打分。
+          - generic [ref=e2091]:
+            - generic [ref=e2096]:
+              - generic [ref=e2101]: "---"
+              - generic [ref=e2104]: "name: code-reviewer"
+              - generic [ref=e2107]: "description: 审查 Python 代码的质量、风格与常见错误。"
+              - generic [ref=e2110]: "---"
+              - generic [ref=e2113]: 第一步：加载 'references/review-checklist.md'。
+              - generic [ref=e2116]: 第二步：仔细阅读用户的代码。
+              - generic [ref=e2119]: 第三步：逐一应用清单中的每条规则。针对每处违规：
+              - generic [ref=e2122]: "- 记录行号"
+              - generic [ref=e2125]: "- 划分严重等级：错误 / 警告 / 提示"
+              - generic [ref=e2128]: "- 解释问题的原因，而不仅仅是描述问题本身"
+              - generic [ref=e2131]: "- 给出具体的修改建议"
+              - generic [ref=e2134]: 第四步：按严重等级分组，输出结构化的审查报告。
+            - generic [ref=e2137] [cursor=pointer]: 
+          - paragraph [ref=e2140]:
+            - strong [ref=e2141]: 关键：
+            - text: Step 3 的 "WHY not WHAT"——不只指出问题，还要解释为什么是问题。
+          - paragraph [ref=e2142]:
+            - strong [ref=e2143]: 适用场景：
+            - text: 自动化 PR 审查、安全漏洞扫描、代码风格检查。
+          - paragraph [ref=e2144]:
+            - strong [ref=e2145]: 模式四：Inversion — 让 Agent 先问你
+          - paragraph [ref=e2146]:
+            - strong [ref=e2147]: 核心逻辑：
+            - text: 翻转传统交互模式。不是用户驱动 prompt → Agent 执行，而是 Agent 先采访用户，收集完整需求后再动手。
+          - generic [ref=e2149]:
+            - generic [ref=e2154]:
+              - generic [ref=e2157]: "---"
+              - generic [ref=e2160]: "name: project-planner"
+              - generic [ref=e2163]: "description: 通过结构化提问收集需求，"
+              - generic [ref=e2166]: 为新软件项目制定规划。
+              - generic [ref=e2169]: "---"
+              - generic [ref=e2172]: 在所有阶段完成之前，请勿开始构建。
+              - generic [ref=e2177]: "## 第一阶段 — 问题探索"
+              - generic [ref=e2180]: 每次只提一个问题：
+              - generic [ref=e2183]: "- 问题1：\"这个项目解决什么问题？\""
+              - generic [ref=e2186]: "- 问题2：\"主要用户群体是哪些？\""
+              - generic [ref=e2189]: "- 问题3：\"预期的使用规模是多少？\""
+              - generic [ref=e2194]: "## 第二阶段 — 技术约束"
+              - generic [ref=e2197]: 仅在第一阶段全部回答完毕后进行：
+              - generic [ref=e2200]: "- 问题4：\"部署环境是什么？\""
+              - generic [ref=e2203]: "- 问题5：\"是否有技术栈偏好？\""
+              - generic [ref=e2206]: "- 问题6：\"哪些是不可妥协的硬性需求？\""
+              - generic [ref=e2211]: "## 第三阶段 — 综合整理"
+              - generic [ref=e2214]: 收集所有信息 → 加载模板 → 填写内容 → 呈现结果 → 迭代优化
+            - generic [ref=e2217] [cursor=pointer]: 
+          - paragraph [ref=e2220]:
+            - strong [ref=e2221]: 适用场景：
+            - text: 新项目规划、系统架构设计、需求不明确时的需求澄清。
+          - paragraph [ref=e2222]:
+            - strong [ref=e2223]: 模式五：Pipeline — 带检查点的多步工作流
+          - paragraph [ref=e2224]:
+            - strong [ref=e2225]: 核心逻辑：
+            - text: 把复杂任务拆成严格顺序的步骤，每步都有明确的输入/输出和通过条件，Agent 不能跳步。
+          - generic [ref=e2227]:
+            - generic [ref=e2232]:
+              - generic [ref=e2237]: "---"
+              - generic [ref=e2240]: "name: doc-pipeline"
+              - generic [ref=e2243]: "description: 通过多步骤流水线，"
+              - generic [ref=e2246]: 从 Python 源代码生成 API 文档。
+              - generic [ref=e2249]: "---"
+              - generic [ref=e2252]: 按顺序执行每个步骤，不得跳过任何步骤。
+              - generic [ref=e2257]: "## 第一步 — 解析与清点"
+              - generic [ref=e2260]: 分析代码，提取所有公开 API，以清单形式呈现。
+              - generic [ref=e2263]: 询问："这是完整的公开 API 列表吗？"
+              - generic [ref=e2268]: "## 第二步 — 生成文档字符串"
+              - generic [ref=e2271]: 针对每个缺少文档字符串的函数，生成内容并提交用户确认。
+              - generic [ref=e2274]: 在用户确认之前，不得进入第三步。
+              - generic [ref=e2279]: "## 第三步 — 组装文档"
+              - generic [ref=e2282]: 加载模板，将所有内容汇编为统一的 API 参考文档。
+              - generic [ref=e2287]: "## 第四步 — 质量检查"
+              - generic [ref=e2290]: 对照清单进行审查，在呈现最终文档之前修复所有问题。
+            - generic [ref=e2293] [cursor=pointer]: 
+          - paragraph [ref=e2296]:
+            - strong [ref=e2297]: 关键：
+            - text: Step 2 → Step 3 的 【确认前不得继续】 是硬性约束——用户不点头，Agent 不能往下走。
+          - paragraph [ref=e2298]:
+            - strong [ref=e2299]: 适用场景：
+            - text: 从代码生成文档、多阶段内容生产、需要人工检查点的自动化流程。
+          - paragraph [ref=e2300]
+          - heading "4.2 设计模式选择指南" [level=2] [ref=e2301]
+          - paragraph [ref=e2302]:
+            - generic [ref=e2309]:
+              - img
+              - text: 
+          - table [ref=e2314]:
+            - rowgroup [ref=e2318]:
+              - row "你需要什么？ 选择哪种模式" [ref=e2319]:
+                - cell "你需要什么？" [ref=e2320]:
+                  - paragraph [ref=e2321]: 你需要什么？
+                - cell "选择哪种模式" [ref=e2322]:
+                  - paragraph [ref=e2323]: 选择哪种模式
+              - row "特定技术栈的专家知识 Tool Wrapper" [ref=e2324]:
+                - cell "特定技术栈的专家知识" [ref=e2325]:
+                  - paragraph [ref=e2326]: 特定技术栈的专家知识
+                - cell "Tool Wrapper" [ref=e2327]:
+                  - paragraph [ref=e2328]: Tool Wrapper
+              - row "一致的结构化输出 Generator" [ref=e2329]:
+                - cell "一致的结构化输出" [ref=e2330]:
+                  - paragraph [ref=e2331]: 一致的结构化输出
+                - cell "Generator" [ref=e2332]:
+                  - paragraph [ref=e2333]: Generator
+              - row "自动化代码/内容审查 Reviewer" [ref=e2334]:
+                - cell "自动化代码/内容审查" [ref=e2335]:
+                  - paragraph [ref=e2336]: 自动化代码/内容审查
+                - cell "Reviewer" [ref=e2337]:
+                  - paragraph [ref=e2338]: Reviewer
+              - row "需求不明确，需先收集信息 Inversion" [ref=e2339]:
+                - cell "需求不明确，需先收集信息" [ref=e2340]:
+                  - paragraph [ref=e2341]: 需求不明确，需先收集信息
+                - cell "Inversion" [ref=e2342]:
+                  - paragraph [ref=e2343]: Inversion
+              - row "复杂的多步骤任务 Pipeline" [ref=e2344]:
+                - cell "复杂的多步骤任务" [ref=e2345]:
+                  - paragraph [ref=e2346]: 复杂的多步骤任务
+                - cell "Pipeline" [ref=e2347]:
+                  - paragraph [ref=e2348]: Pipeline
+              - row "不确定？ 从 Tool Wrapper 开始" [ref=e2349]:
+                - cell "不确定？" [ref=e2350]:
+                  - paragraph [ref=e2351]: 不确定？
+                - cell "从 Tool Wrapper 开始" [ref=e2352]:
+                  - paragraph [ref=e2353]: 从 Tool Wrapper 开始
+          - paragraph [ref=e2354]
+          - heading "4.3 模式组合推荐" [level=2] [ref=e2355]
+          - table [ref=e2360]:
+            - rowgroup [ref=e2365]:
+              - row "组合 说明 场景" [ref=e2366]:
+                - cell "组合" [ref=e2367]:
+                  - paragraph [ref=e2368]: 组合
+                - cell "说明" [ref=e2369]:
+                  - paragraph [ref=e2370]: 说明
+                - cell "场景" [ref=e2371]:
+                  - paragraph [ref=e2372]: 场景
+              - row "Pipeline + Reviewer 管道最后一步加自动审查 文档生成后自动质量检查" [ref=e2373]:
+                - cell "Pipeline + Reviewer" [ref=e2374]:
+                  - paragraph [ref=e2375]: Pipeline + Reviewer
+                - cell "管道最后一步加自动审查" [ref=e2376]:
+                  - paragraph [ref=e2377]: 管道最后一步加自动审查
+                - cell "文档生成后自动质量检查" [ref=e2378]:
+                  - paragraph [ref=e2379]: 文档生成后自动质量检查
+              - row "Generator + Inversion 先收集信息再填充模板 需用户输入的结构化文档生成" [ref=e2380]:
+                - cell "Generator + Inversion" [ref=e2381]:
+                  - paragraph [ref=e2382]: Generator + Inversion
+                - cell "先收集信息再填充模板" [ref=e2383]:
+                  - paragraph [ref=e2384]: 先收集信息再填充模板
+                - cell "需用户输入的结构化文档生成" [ref=e2385]:
+                  - paragraph [ref=e2386]: 需用户输入的结构化文档生成
+              - row "Pipeline + Tool Wrapper 管道某些步骤加载专家知识 多步骤代码生成" [ref=e2387]:
+                - cell "Pipeline + Tool Wrapper" [ref=e2388]:
+                  - paragraph [ref=e2389]: Pipeline + Tool Wrapper
+                - cell "管道某些步骤加载专家知识" [ref=e2390]:
+                  - paragraph [ref=e2391]: 管道某些步骤加载专家知识
+                - cell "多步骤代码生成" [ref=e2392]:
+                  - paragraph [ref=e2393]: 多步骤代码生成
+              - row "Inversion + Pipeline 先完成需求收集再进入执行流水线 复杂项目全流程" [ref=e2394]:
+                - cell "Inversion + Pipeline" [ref=e2395]:
+                  - paragraph [ref=e2396]: Inversion + Pipeline
+                - cell "先完成需求收集再进入执行流水线" [ref=e2397]:
+                  - paragraph [ref=e2398]: 先完成需求收集再进入执行流水线
+                - cell "复杂项目全流程" [ref=e2399]:
+                  - paragraph [ref=e2400]: 复杂项目全流程
+          - heading "五、总结" [level=1] [ref=e2401]
+          - paragraph [ref=e2402]: Skill 生态正在快速发展，已形成 规范标准（agentskills.io）→ 构建方法论（Anthropic/Superpowers）→ 设计模式（Google） 的完整知识体系。三个关键认知：
+          - paragraph [ref=e2403]:
+            - strong [ref=e2404]: 1.Skill 不是 Prompt
+            - text: ，而是围绕任务、工具、流程和输出边界的结构化行为设计
+          - paragraph [ref=e2405]:
+            - strong [ref=e2406]: 2.渐进式加载是核心机制
+            - text: ，解决了 Agent 系统的上下文膨胀问题
+          - paragraph [ref=e2407]:
+            - strong [ref=e2408]: 3.描述是触发的关键
+            - text: ，写好 description 比写好指令主体更重要
+          - paragraph [ref=e2409]: 参考资料
+          - table [ref=e2414]:
+            - rowgroup [ref=e2418]:
+              - row "描述 链接" [ref=e2419]:
+                - cell "描述" [ref=e2420]:
+                  - paragraph [ref=e2421]: 描述
+                - cell "链接" [ref=e2422]:
+                  - paragraph [ref=e2423]: 链接
+              - row "Agent Skills 开放规范 https://agentskills.io/specification" [ref=e2424]:
+                - cell "Agent Skills 开放规范" [ref=e2425]:
+                  - paragraph [ref=e2426]: Agent Skills 开放规范
+                - cell "https://agentskills.io/specification" [ref=e2427]:
+                  - paragraph [ref=e2428]:
+                    - link "https://agentskills.io/specification" [ref=e2430] [cursor=pointer]:
+                      - /url: https://agentskills.io/specification
+              - row "Anthropic 官方 Skills 仓库 https://github.com/anthropics/skills" [ref=e2431]:
+                - cell "Anthropic 官方 Skills 仓库" [ref=e2432]:
+                  - paragraph [ref=e2433]: Anthropic 官方 Skills 仓库
+                - cell "https://github.com/anthropics/skills" [ref=e2434]:
+                  - paragraph [ref=e2435]:
+                    - link "https://github.com/anthropics/skills" [ref=e2437] [cursor=pointer]:
+                      - /url: https://github.com/anthropics/skills
+              - row "Superpowers 框架 https://github.com/obra/superpowers" [ref=e2438]:
+                - cell "Superpowers 框架" [ref=e2439]:
+                  - paragraph [ref=e2440]: Superpowers 框架
+                - cell "https://github.com/obra/superpowers" [ref=e2441]:
+                  - paragraph [ref=e2442]:
+                    - link "https://github.com/obra/superpowers" [ref=e2444] [cursor=pointer]:
+                      - /url: https://github.com/obra/superpowers
+              - row "Google ADK Skill 设计模式 https://x.com/GoogleCloudTech/status/2033953579824758855" [ref=e2445]:
+                - cell "Google ADK Skill 设计模式" [ref=e2446]:
+                  - paragraph [ref=e2447]: Google ADK Skill 设计模式
+                - cell "https://x.com/GoogleCloudTech/status/2033953579824758855" [ref=e2448]:
+                  - paragraph [ref=e2449]:
+                    - link "https://x.com/GoogleCloudTech/status/2033953579824758855" [ref=e2451] [cursor=pointer]:
+                      - /url: https://x.com/GoogleCloudTech/status/2033953579824758855
+              - row "Awesome Agent Skills（1060+ Skills） https://github.com/VoltAgent/awesome-agent-skills" [ref=e2452]:
+                - cell "Awesome Agent Skills（1060+ Skills）" [ref=e2453]:
+                  - paragraph [ref=e2454]: Awesome Agent Skills（1060+ Skills）
+                - cell "https://github.com/VoltAgent/awesome-agent-skills" [ref=e2455]:
+                  - paragraph [ref=e2456]:
+                    - link "https://github.com/VoltAgent/awesome-agent-skills" [ref=e2458] [cursor=pointer]:
+                      - /url: https://github.com/VoltAgent/awesome-agent-skills
+              - row "Anthropic 黑客马拉松获胜者的完整 Claude Code 配置集合（包含skills） https://github.com/affaan-m/everything-claude-code" [ref=e2459]:
+                - cell "Anthropic 黑客马拉松获胜者的完整 Claude Code 配置集合（包含skills）" [ref=e2460]:
+                  - paragraph [ref=e2461]: Anthropic 黑客马拉松获胜者的完整 Claude Code 配置集合（包含skills）
+                - cell "https://github.com/affaan-m/everything-claude-code" [ref=e2462]:
+                  - paragraph [ref=e2463]:
+                    - link "https://github.com/affaan-m/everything-claude-code" [ref=e2465] [cursor=pointer]:
+                      - /url: https://github.com/affaan-m/everything-claude-code
+              - row "开源skills市场 https://skills.sh https://skillsmp.com https://github.com/openclaw/clawhub https://qoder-community.pages.dev/zh/skills https://github.com/cinience/alicloud-skills https://hermes-agent.nousresearch.com/docs/skills" [ref=e2466]:
+                - cell "开源skills市场" [ref=e2467]:
+                  - paragraph [ref=e2468]: 开源skills市场
+                - cell "https://skills.sh https://skillsmp.com https://github.com/openclaw/clawhub https://qoder-community.pages.dev/zh/skills https://github.com/cinience/alicloud-skills https://hermes-agent.nousresearch.com/docs/skills" [ref=e2469]:
+                  - list [ref=e2470]:
+                    - listitem [ref=e2471]:
+                      - link "https://skills.sh" [ref=e2473] [cursor=pointer]:
+                        - /url: https://skills.sh
+                  - list [ref=e2474]:
+                    - listitem [ref=e2475]:
+                      - link "https://skillsmp.com" [ref=e2477] [cursor=pointer]:
+                        - /url: https://skillsmp.com
+                  - list [ref=e2478]:
+                    - listitem [ref=e2479]:
+                      - link "https://github.com/openclaw/clawhub" [ref=e2481] [cursor=pointer]:
+                        - /url: https://github.com/openclaw/clawhub
+                  - list [ref=e2482]:
+                    - listitem [ref=e2483]:
+                      - link "https://qoder-community.pages.dev/zh/skills" [ref=e2485] [cursor=pointer]:
+                        - /url: https://qoder-community.pages.dev/zh/skills
+                  - list [ref=e2486]:
+                    - listitem [ref=e2487]:
+                      - link "https://github.com/cinience/alicloud-skills" [ref=e2489] [cursor=pointer]:
+                        - /url: https://github.com/cinience/alicloud-skills
+                  - list [ref=e2490]:
+                    - listitem [ref=e2491]:
+                      - link "https://hermes-agent.nousresearch.com/docs/skills" [ref=e2493] [cursor=pointer]:
+                        - /url: https://hermes-agent.nousresearch.com/docs/skills
+                  - paragraph [ref=e2494]
+              - row "skill评测 https://www.skillsbench.ai/ https://arxiv.org/html/2602.12670v1 https://arxiv.org/html/2602.03279" [ref=e2495]:
+                - cell "skill评测" [ref=e2496]:
+                  - paragraph [ref=e2497]: skill评测
+                - cell "https://www.skillsbench.ai/ https://arxiv.org/html/2602.12670v1 https://arxiv.org/html/2602.03279" [ref=e2498]:
+                  - list [ref=e2499]:
+                    - listitem [ref=e2500]:
+                      - link "https://www.skillsbench.ai/" [ref=e2502] [cursor=pointer]:
+                        - /url: https://www.skillsbench.ai/
+                  - list [ref=e2503]:
+                    - listitem [ref=e2504]:
+                      - link "https://arxiv.org/html/2602.12670v1" [ref=e2506] [cursor=pointer]:
+                        - /url: https://arxiv.org/html/2602.12670v1
+                  - list [ref=e2507]:
+                    - listitem [ref=e2508]:
+                      - link "https://arxiv.org/html/2602.03279" [ref=e2510] [cursor=pointer]:
+                        - /url: https://arxiv.org/html/2602.03279
+          - heading "写在最后" [level=1] [ref=e2511]
+          - paragraph [ref=e2512]: 本文所探讨的 Agent Skill 规范、构建与设计模式，正是【淘天集团‑淘宝平台事业部-客户运营部】在智能研发中的实践经验总结。如果你对 Agent 应用研发感兴趣，欢迎加入我们，现开放以下岗位：
+          - list [ref=e2513]:
+            - listitem [ref=e2514]: AI 应用研发工程师
+            - listitem [ref=e2515]: AI 应用算法工程师
+            - listitem [ref=e2516]: 算法工程师
+          - paragraph [ref=e2517]: 感兴趣的同学请将简历发送至 [fangkele.fkl@taobao.com]，期待你的加入！
+          - paragraph [ref=e2518]
+          - paragraph [ref=e2519]
+          - paragraph [ref=e2520]: 来源 | 阿里云开发者公众号
+          - paragraph [ref=e2521]: 作者 | 珂罗
+        - generic [ref=e2523]:
+          - generic [ref=e2524]: 文章标签：
+          - generic [ref=e2525]:
+            - link "测试技术" [ref=e2527] [cursor=pointer]:
+              - /url: /label/article_de-3-100022
+            - link "设计模式" [ref=e2529] [cursor=pointer]:
+              - /url: /label/article_de-3-100284
+            - link "人工智能" [ref=e2531] [cursor=pointer]:
+              - /url: /label/article_de-3-100052
+            - link "数据格式" [ref=e2533] [cursor=pointer]:
+              - /url: /label/article_de-3-100256
+            - link "JSON" [ref=e2535] [cursor=pointer]:
+              - /url: /label/article_de-3-100272
+      - generic [ref=e2536]:
+        - generic: 
+      - generic [ref=e2538]:
+        - generic [ref=e2539]: 相关文章
+        - generic [ref=e2540]:
+          - generic [ref=e2541]:
+            - text: . .
+            - generic [ref=e2542]:
+              - generic [ref=e2543]:
+                - link "Skill Factory：三天手搓面向Harness设计的技能工厂（附AI coding实践）" [ref=e2544] [cursor=pointer]:
+                  - /url: https://developer.aliyun.com/article/1734616
+                - generic [ref=e2545]: 文章内容基于作者个人技术实践与独立思考，旨在分享经验，仅代表个人观点。
+                - generic [ref=e2547]:
+                  - link "阿里云开发者" [ref=e2549] [cursor=pointer]:
+                    - /url: /profile/6ibaby6qg4ku4
+                  - generic [ref=e2550]: 427 阅读
+                  - text:  
+              - link "Skill Factory：三天手搓面向Harness设计的技能工厂（附AI coding实践）" [ref=e2551] [cursor=pointer]:
+                - /url: https://developer.aliyun.com/article/1734616
+                - img "Skill Factory：三天手搓面向Harness设计的技能工厂（附AI coding实践）" [ref=e2552]
+          - generic [ref=e2553]:
+            - text: . .
+            - generic [ref=e2554]:
+              - generic [ref=e2555]:
+                - link "Agent从一问一答到自主执行面临哪些挑战？" [ref=e2556] [cursor=pointer]:
+                  - /url: https://developer.aliyun.com/article/1734613
+                - generic [ref=e2557]: AI任务调度平台（MSE）解决开源Agent定时任务的五大痛点：高可用性、统一运维、细粒度权限、全链路可观测、弹性降本。支持OpenClaw/Hermes/百炼/Dify等多框架，提供任务批处理、自进化、会话管理等企业级能力，现开放免费公测。
+                - generic [ref=e2559]:
+                  - link "阿里云开发者" [ref=e2561] [cursor=pointer]:
+                    - /url: /profile/6ibaby6qg4ku4
+                  - generic [ref=e2562]: 236 阅读
+                  - text:  
+              - link "Agent从一问一答到自主执行面临哪些挑战？" [ref=e2563] [cursor=pointer]:
+                - /url: https://developer.aliyun.com/article/1734613
+                - img "Agent从一问一答到自主执行面临哪些挑战？" [ref=e2564]
+          - generic [ref=e2565]:
+            - text: . .
+            - generic [ref=e2567]:
+              - link "工作流的 Skill 怎么写？从 7 个顶级 Skill 中提炼的模式与最佳实践" [ref=e2568] [cursor=pointer]:
+                - /url: https://developer.aliyun.com/article/1732677
+              - generic [ref=e2569]: "Skill 是一种基于 YAML frontmatter + Markdown 的知识注入机制，通过 `SKILL.md` 文件将结构化指令注入 LLM 上下文，由其调用内置工具（如 bash、read）执行。含 5 大设计模式：线性流程、决策树、循环迭代、接力棒循环、多阶段编排，另含思维框架模式，专用于控制 LLM 深度分析而非操作执行。"
+              - generic [ref=e2571]:
+                - link "阿里云开发者" [ref=e2573] [cursor=pointer]:
+                  - /url: /profile/6ibaby6qg4ku4
+                - generic [ref=e2574]: 1381 阅读
+                - text:  
+          - generic [ref=e2575]:
+            - text: . .
+            - generic [ref=e2576]:
+              - generic [ref=e2577]:
+                - link "告别“氛围编程”：基于 Harness 治理和 SDD 的团队级 AI 研发范式演进与实践" [ref=e2578] [cursor=pointer]:
+                  - /url: https://developer.aliyun.com/article/1734485
+                - generic [ref=e2579]: 文章内容基于作者个人技术实践与独立思考，旨在分享经验，仅代表个人观点。
+                - generic [ref=e2581]:
+                  - link "阿里云开发者" [ref=e2583] [cursor=pointer]:
+                    - /url: /profile/6ibaby6qg4ku4
+                  - generic [ref=e2584]: 876 阅读
+                  - text:  
+              - link "告别“氛围编程”：基于 Harness 治理和 SDD 的团队级 AI 研发范式演进与实践" [ref=e2585] [cursor=pointer]:
+                - /url: https://developer.aliyun.com/article/1734485
+                - img "告别“氛围编程”：基于 Harness 治理和 SDD 的团队级 AI 研发范式演进与实践" [ref=e2586]
+          - generic [ref=e2587]:
+            - text: . .
+            - generic [ref=e2589]:
+              - link "你不知道的 Agent：原理、架构与工程实践" [ref=e2590] [cursor=pointer]:
+                - /url: https://developer.aliyun.com/article/1732637
+              - generic [ref=e2591]: 文章内容基于作者个人技术实践与独立思考，旨在分享经验，仅代表个人观点。
+              - generic [ref=e2593]:
+                - link "阿里云开发者" [ref=e2595] [cursor=pointer]:
+                  - /url: /profile/6ibaby6qg4ku4
+                - generic [ref=e2596]: 724 阅读
+                - text:  
+          - generic [ref=e2597]:
+            - text: . .
+            - generic [ref=e2599]:
+              - link "Harness Engineering：耗时一周，我是如何将应用的AI Coding率提升至90%的" [ref=e2600] [cursor=pointer]:
+                - /url: https://developer.aliyun.com/article/1734483
+              - generic [ref=e2601]: 文章内容基于作者个人技术实践与独立思考，旨在分享经验，仅代表个人观点。
+              - generic [ref=e2603]:
+                - link "阿里云开发者" [ref=e2605] [cursor=pointer]:
+                  - /url: /profile/6ibaby6qg4ku4
+                - generic [ref=e2606]: 758 阅读
+                - text:  
+          - generic [ref=e2607]:
+            - text: . .
+            - generic [ref=e2608]:
+              - generic [ref=e2609]:
+                - link "Agent 时代的生产力悖论：当协作本身成为最大的瓶颈" [ref=e2610] [cursor=pointer]:
+                  - /url: https://developer.aliyun.com/article/1734488
+                - generic [ref=e2611]: 文章内容基于作者个人技术实践与独立思考，旨在分享经验，仅代表个人观点。
+                - generic [ref=e2613]:
+                  - link "阿里云开发者" [ref=e2615] [cursor=pointer]:
+                    - /url: /profile/6ibaby6qg4ku4
+                  - generic [ref=e2616]: 206 阅读
+                  - text:  
+              - link "Agent 时代的生产力悖论：当协作本身成为最大的瓶颈" [ref=e2617] [cursor=pointer]:
+                - /url: https://developer.aliyun.com/article/1734488
+                - img "Agent 时代的生产力悖论：当协作本身成为最大的瓶颈" [ref=e2618]
+          - generic [ref=e2619]:
+            - text: . .
+            - generic [ref=e2621]:
+              - link "阿里云海外重磅发布 Qwen Cloud" [ref=e2622] [cursor=pointer]:
+                - /url: https://developer.aliyun.com/article/1737254
+              - generic [ref=e2623]: Qwen Cloud，正是为AI Agent 而生的全新服务方式。
+              - generic [ref=e2625]:
+                - link "阿里云开发者" [ref=e2627] [cursor=pointer]:
+                  - /url: /profile/6ibaby6qg4ku4
+                - generic [ref=e2628]: 1286 阅读
+                - text:  
+          - generic [ref=e2629]:
+            - text: . .
+            - generic [ref=e2630]:
+              - generic [ref=e2631]:
+                - link "深度解析LLM Wiki / Obsidian-Wiki / GBrain：Agent时代知识的“自组织”与“自进化”" [ref=e2632] [cursor=pointer]:
+                  - /url: https://developer.aliyun.com/article/1734602
+                - generic [ref=e2633]: 本文是「项目深度解析」系列的第4篇，系列文章为《深度解析OpenClaw》、《深度解析Claude Code》、《深度解析Hermes Agent》。（文章内容基于作者个人技术实践与独立思考，旨在分享经验，仅代表个人观点。）
+                - generic [ref=e2635]:
+                  - link "阿里云开发者" [ref=e2637] [cursor=pointer]:
+                    - /url: /profile/6ibaby6qg4ku4
+                  - generic [ref=e2638]: 798 阅读
+                  - text:  
+              - link "深度解析LLM Wiki / Obsidian-Wiki / GBrain：Agent时代知识的“自组织”与“自进化”" [ref=e2639] [cursor=pointer]:
+                - /url: https://developer.aliyun.com/article/1734602
+                - img "深度解析LLM Wiki / Obsidian-Wiki / GBrain：Agent时代知识的“自组织”与“自进化”" [ref=e2640]
+          - generic [ref=e2641]:
+            - text: . .
+            - generic [ref=e2642]:
+              - generic [ref=e2643]:
+                - link "一个文件让 AI Coding 效率翻倍：AGENTS.md 实践指南" [ref=e2644] [cursor=pointer]:
+                  - /url: https://developer.aliyun.com/article/1732590
+                - generic [ref=e2645]: 文章内容基于作者个人技术实践与独立思考，旨在分享经验，仅代表个人观点。
+                - generic [ref=e2647]:
+                  - link "阿里云开发者" [ref=e2649] [cursor=pointer]:
+                    - /url: /profile/6ibaby6qg4ku4
+                  - generic [ref=e2650]: 4796 阅读
+                  - text:  
+              - link "一个文件让 AI Coding 效率翻倍：AGENTS.md 实践指南" [ref=e2651] [cursor=pointer]:
+                - /url: https://developer.aliyun.com/article/1732590
+                - img "一个文件让 AI Coding 效率翻倍：AGENTS.md 实践指南" [ref=e2652]
+    - generic [ref=e2653]:
+      - generic [ref=e2654]:
+        - generic [ref=e2655]:
+          - heading "热门文章" [level=2] [ref=e2657] [cursor=pointer]
+          - heading "最新文章" [level=2] [ref=e2659] [cursor=pointer]
+        - generic [ref=e2660]:
+          - generic [ref=e2661]:
+            - generic [ref=e2662]:
+              - listitem [ref=e2663]:
+                - 'link "1 【已解决】SpringBoot 启动报错：Failed to configure a DataSource: ‘url‘ attribute is not specified and no emb " [ref=e2664] [cursor=pointer]':
+                  - /url: /article/1537804
+                  - generic [ref=e2665]:
+                    - generic [ref=e2666]: "1"
+                    - generic [ref=e2667]: "【已解决】SpringBoot 启动报错：Failed to configure a DataSource: ‘url‘ attribute is not specified and no emb"
+                    - generic: 
+              - listitem [ref=e2668]:
+                - link "2 企业数据创新之旅——高性能NAS助力业务上云 " [ref=e2669] [cursor=pointer]:
+                  - /url: /article/592925
+                  - generic [ref=e2670]:
+                    - generic [ref=e2671]: "2"
+                    - generic [ref=e2672]: 企业数据创新之旅——高性能NAS助力业务上云
+                    - generic: 
+              - listitem [ref=e2673]:
+                - link "3 Java注释规范整理 " [ref=e2674] [cursor=pointer]:
+                  - /url: /article/304888
+                  - generic [ref=e2675]:
+                    - generic [ref=e2676]: "3"
+                    - generic [ref=e2677]: Java注释规范整理
+                    - generic: 
+              - listitem [ref=e2678]:
+                - link "4 nvm 切换版本失效？这个方法100%解决 " [ref=e2679] [cursor=pointer]:
+                  - /url: /article/1274767
+                  - generic [ref=e2680]:
+                    - generic [ref=e2681]: "4"
+                    - generic [ref=e2682]: nvm 切换版本失效？这个方法100%解决
+                    - generic: 
+              - listitem [ref=e2683]:
+                - link "5 NAT网关之SNAT进阶使用（一）SNAT POOL " [ref=e2684] [cursor=pointer]:
+                  - /url: /article/533821
+                  - generic [ref=e2685]:
+                    - generic [ref=e2686]: "5"
+                    - generic [ref=e2687]: NAT网关之SNAT进阶使用（一）SNAT POOL
+                    - generic: 
+              - listitem [ref=e2688]:
+                - link "6 Oracle11G R1/R2官方下载列表 " [ref=e2689] [cursor=pointer]:
+                  - /url: /article/245181
+                  - generic [ref=e2690]:
+                    - generic [ref=e2691]: "6"
+                    - generic [ref=e2692]: Oracle11G R1/R2官方下载列表
+                    - generic: 
+              - listitem [ref=e2693]:
+                - link "7 lintcode二叉树的锯齿形层次遍历 （双端队列） " [ref=e2694] [cursor=pointer]:
+                  - /url: /article/566882
+                  - generic [ref=e2695]:
+                    - generic [ref=e2696]: "7"
+                    - generic [ref=e2697]: lintcode二叉树的锯齿形层次遍历 （双端队列）
+                    - generic: 
+              - listitem [ref=e2698]:
+                - link "8 如何卸载iPhone模拟器中的自己创建的程序 " [ref=e2699] [cursor=pointer]:
+                  - /url: /article/417085
+                  - generic [ref=e2700]:
+                    - generic [ref=e2701]: "8"
+                    - generic [ref=e2702]: 如何卸载iPhone模拟器中的自己创建的程序
+                    - generic: 
+              - listitem [ref=e2703]:
+                - link "9 【我们都爱Paul Hegarty】斯坦福IOS8公开课个人笔记32 NSNotification " [ref=e2704] [cursor=pointer]:
+                  - /url: /article/454904
+                  - generic [ref=e2705]:
+                    - generic [ref=e2706]: "9"
+                    - generic [ref=e2707]: 【我们都爱Paul Hegarty】斯坦福IOS8公开课个人笔记32 NSNotification
+                    - generic: 
+              - listitem [ref=e2708]:
+                - link "10 【BBED】使用bbed修改数字类型数据 " [ref=e2709] [cursor=pointer]:
+                  - /url: /article/282664
+                  - generic [ref=e2710]:
+                    - generic [ref=e2711]: "10"
+                    - generic [ref=e2712]: 【BBED】使用bbed修改数字类型数据
+                    - generic: 
+            - generic [ref=e2714] [cursor=pointer]: 展开更多 
+          - text:           展开更多 
+      - generic [ref=e2716]: 相关商品
+      - generic [ref=e2723]:
+        - generic [ref=e2724]:
+          - heading "相关解决方案" [level=2] [ref=e2725]
+          - link "更多 " [ref=e2726] [cursor=pointer]:
+            - /url: https://www.aliyun.com/solution/tech-solution/
+        - generic [ref=e2727]:
+          - listitem [ref=e2728]:
+            - link "快速构建企业级数据分析 Agent" [ref=e2729] [cursor=pointer]:
+              - /url: https://www.aliyun.com/solution/tech-solution/hologres-mcp
+          - listitem [ref=e2730]:
+            - link "DMS Data Agent 开启智能分析之旅" [ref=e2731] [cursor=pointer]:
+              - /url: https://www.aliyun.com/solution/tech-solution/data-agent-for-analytics
+          - listitem [ref=e2732]:
+            - link "Agent 赋能，一键生成智能分析报告" [ref=e2733] [cursor=pointer]:
+              - /url: https://www.aliyun.com/solution/tech-solution/quick-bi-report
+          - listitem [ref=e2734]:
+            - link "JManus解锁AI Agent高效开发" [ref=e2735] [cursor=pointer]:
+              - /url: https://www.aliyun.com/solution/tech-solution/sae-deploy-jmanus
+          - listitem [ref=e2736]:
+            - link "主动式智能导购 AI 助手构建" [ref=e2737] [cursor=pointer]:
+              - /url: https://www.aliyun.com/solution/tech-solution/build-an-ai-shopping-assistant
+      - generic [ref=e2738]:
+        - generic [ref=e2739]:
+          - heading "相关电子书" [level=2] [ref=e2740]
+          - link "更多 " [ref=e2741] [cursor=pointer]:
+            - /url: /ebook/
+        - generic [ref=e2742]:
+          - listitem [ref=e2743]:
+            - link "低代码开发师（初级）实战教程" [ref=e2744] [cursor=pointer]:
+              - /url: /ebook/7576
+          - listitem [ref=e2745]:
+            - link "冬季实战营第三期：MySQL数据库进阶实战" [ref=e2746] [cursor=pointer]:
+              - /url: /ebook/7491
+          - listitem [ref=e2747]:
+            - link "阿里巴巴DevOps 最佳实践手册" [ref=e2748] [cursor=pointer]:
+              - /url: /ebook/347
+      - generic [ref=e2749]:  
+  - contentinfo "移动端页尾" [ref=e2752]:
+    - generic [ref=e2753]:
+      - generic [ref=e2756]:
+        - generic [ref=e2757]: 关注我们：
+        - link "新浪微博" [ref=e2758] [cursor=pointer]:
+          - /url: https://weibo.com/u/1644971875
+          - text: 新浪微博
+      - link "联系我们" [ref=e2760] [cursor=pointer]:
+        - /url: https://www.aliyun.com/contact
+      - generic [ref=e2761]:
+        - link "文档" [ref=e2762] [cursor=pointer]:
+          - /url: https://help.aliyun.com/
+        - text: "|"
+        - link "开发者社区" [ref=e2763] [cursor=pointer]:
+          - /url: https://developer.aliyun.com/
+        - text: "|"
+        - link "天池大赛" [ref=e2764] [cursor=pointer]:
+          - /url: https://tianchi.aliyun.com/
+        - text: "|"
+        - link "培训与认证" [ref=e2765] [cursor=pointer]:
+          - /url: https://edu.aliyun.com/
+      - img "阿里云" [ref=e2766]
+      - generic [ref=e2767]:
+        - link "法律声明及隐私权政策" [ref=e2768] [cursor=pointer]:
+          - /url: http://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud201902141711_54837.html
+        - text: "|"
+        - link "Cookies政策" [ref=e2769] [cursor=pointer]:
+          - /url: https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html
+      - generic [ref=e2770]:
+        - text: © 2009-现在 Aliyun.com 版权所有
+        - text: 增值电信业务经营许可证：
+        - link "浙B2-20080101" [ref=e2771] [cursor=pointer]:
+          - /url: http://beian.miit.gov.cn/
+        - text: 域名注册服务机构许可：
+        - link "浙D3-20210002" [ref=e2772] [cursor=pointer]:
+          - /url: "https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 "
+      - generic [ref=e2773]:
+        - link [ref=e2774] [cursor=pointer]:
+          - /url: https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&signData=MEUCIQDEkCd8cK7/yqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f+V/iof3iAgpsV09o=
+          - img [ref=e2775]
+        - link "浙公网安备 33010602009975号" [ref=e2776] [cursor=pointer]:
+          - /url: http://www.beian.gov.cn/portal/registerSystemInfo
+          - img [ref=e2777]
+          - text: 浙公网安备 33010602009975号
+        - link "浙B2-20080101-4" [ref=e2778] [cursor=pointer]:
+          - /url: https://beian.miit.gov.cn/

@@ -1,19 +1,15 @@
-# Nodes and Scenes Skill
+---
+name: nodes-and-scenes
+description: Design and manage Godot's node and scene system. Use this skill when creating scenes, designing node hierarchies, instancing scenes, setting up node communication with signals or groups, configuring autoloads/singletons, or implementing scene transitions.
+metadata:
+  author: godot-dev
+  version: "1.0"
+---
 
-## Description
-Expert skill for Godot's node and scene system - the core building blocks of any Godot project
+# Nodes and Scenes
 
-## Triggers
-- Creating scenes
-- Node hierarchy design
-- Scene instancing
-- Node communication
-- Scene transitions
-- Autoload/singletons
+## Scene Tree Structure
 
-## Core Concepts
-
-### Scene Tree Structure
 ```
 Game (Node)
 ├── World (Node2D/Node3D)
@@ -32,9 +28,10 @@ Game (Node)
     └── ScoreLabel (Label)
 ```
 
-### Node Types Reference
+## Node Types Reference
 
-#### 2D Nodes
+### 2D Nodes
+
 - **Node2D**: Base 2D transform node
 - **Sprite2D**: Display 2D textures
 - **AnimatedSprite2D**: Sprite sheet animations
@@ -42,14 +39,16 @@ Game (Node)
 - **Camera2D**: 2D viewport control
 - **ParallaxBackground/ParallaxLayer**: Parallax scrolling
 
-#### 3D Nodes
+### 3D Nodes
+
 - **Node3D**: Base 3D transform node
 - **MeshInstance3D**: Display 3D meshes
 - **Camera3D**: 3D viewport control
 - **DirectionalLight3D/OmniLight3D/SpotLight3D**: Lighting
 - **WorldEnvironment**: Post-processing effects
 
-#### Physics Nodes
+### Physics Nodes
+
 - **CharacterBody2D/3D**: Player/enemy with manual movement
 - **RigidBody2D/3D**: Physics simulation
 - **StaticBody2D/3D**: Static colliders
@@ -57,7 +56,8 @@ Game (Node)
 - **Area2D/3D**: Detection zones
 - **CollisionShape2D/3D**: Collision geometry
 
-#### UI Nodes (Control)
+### UI Nodes (Control)
+
 - **Control**: Base UI node
 - **Label**: Text display
 - **Button/LinkButton**: Clickable buttons
@@ -69,9 +69,10 @@ Game (Node)
 - **MarginContainer**: Spacing
 - **Panel/PanelContainer**: Background panels
 
-### Scene Instancing
+## Scene Instancing
 
-#### In Code
+### In Code
+
 ```gdscript
 # Load scene
 var enemy_scene = preload("res://scenes/enemy.tscn")
@@ -82,13 +83,15 @@ enemy.position = Vector2(100, 100)
 add_child(enemy)
 ```
 
-#### In Editor
+### In Editor
+
 1. Drag scene file from FileSystem to Scene dock
 2. Or use "Instance Child Scene" button
 
-### Node Communication Patterns
+## Node Communication Patterns
 
-#### Direct Reference (tight coupling)
+### Direct Reference (tight coupling)
+
 ```gdscript
 @onready var player = $Player
 
@@ -96,7 +99,8 @@ func _process(delta):
     player.health -= 10
 ```
 
-#### Signals (loose coupling - recommended)
+### Signals (loose coupling - recommended)
+
 ```gdscript
 # In Player.gd
 signal health_changed(new_health)
@@ -113,7 +117,8 @@ func _on_player_health_changed(new_health):
     update_health_bar(new_health)
 ```
 
-#### Groups
+### Groups
+
 ```gdscript
 # Add to group
 enemy.add_to_group("enemies")
@@ -125,38 +130,37 @@ var enemies = get_tree().get_nodes_in_group("enemies")
 get_tree().call_group("enemies", "take_damage", 10)
 ```
 
-### Autoload / Singletons
+## Autoload / Singletons
 
-#### Setup in Project Settings
+### Setup in Project Settings
+
 1. Project → Project Settings → Autoload
 2. Add script with a name (e.g., "GameManager")
 
-#### Usage
+### Usage
+
 ```gdscript
 # Access anywhere
 GameManager.score += 10
 GameManager.save_game()
 ```
 
-### Scene Transitions
+## Scene Transitions
+
 ```gdscript
 # Change scene
 get_tree().change_scene_to_file("res://scenes/level2.tscn")
 
 # With transition effect
 func change_scene_with_fade(scene_path: String):
-    # Start fade out
     $AnimationPlayer.play("fade_out")
     await $AnimationPlayer.animation_finished
-    
-    # Change scene
     get_tree().change_scene_to_file(scene_path)
-    
-    # Fade in (in new scene's _ready)
     $AnimationPlayer.play("fade_in")
 ```
 
-### Best Practices
+## Best Practices
+
 1. Keep scenes small and composable
 2. Use signals for cross-scene communication
 3. Prefer composition over deep inheritance

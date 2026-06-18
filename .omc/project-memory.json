@@ -1,0 +1,339 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1781750876321,
+  "projectRoot": "D:\\study\\Programs\\skills",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "2d-development": {
+      "path": "2d-development",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781750876225,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "3d-development": {
+      "path": "3d-development",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781750876226,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "animation": {
+      "path": "animation",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781750876227,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "audio": {
+      "path": "audio",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781750876229,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "export-deploy": {
+      "path": "export-deploy",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781750876231,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "gdscript": {
+      "path": "gdscript",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781750876232,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "godot-Developer": {
+      "path": "godot-Developer",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781750876232,
+      "keyFiles": [
+        "README.md"
+      ]
+    },
+    "input-system": {
+      "path": "input-system",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781750876233,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "lottery-prediction": {
+      "path": "lottery-prediction",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1781750876234,
+      "keyFiles": [
+        "README.md",
+        "SKILL.md"
+      ]
+    },
+    "navigation": {
+      "path": "navigation",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781750876235,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "nodes-and-scenes": {
+      "path": "nodes-and-scenes",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781750876236,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "physics": {
+      "path": "physics",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781750876237,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "shaders": {
+      "path": "shaders",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781750876237,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "state-machine": {
+      "path": "state-machine",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781750876238,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "ui-system": {
+      "path": "ui-system",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781750876239,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "lottery-prediction\\assets": {
+      "path": "lottery-prediction\\assets",
+      "purpose": "Static assets",
+      "fileCount": 1,
+      "lastAccessed": 1781750876246,
+      "keyFiles": [
+        "template.json"
+      ]
+    },
+    "lottery-prediction\\scripts": {
+      "path": "lottery-prediction\\scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 7,
+      "lastAccessed": 1781750876248,
+      "keyFiles": [
+        "analyzer.py",
+        "data_fetcher.py",
+        "lottery_history.json"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "godot-Developer",
+      "accessCount": 8,
+      "lastAccessed": 1781664525016,
+      "type": "directory"
+    },
+    {
+      "path": "README.md",
+      "accessCount": 3,
+      "lastAccessed": 1781676960107,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\references\\tutorials\\scripting\\gdscript\\gdscript_basics.html",
+      "accessCount": 2,
+      "lastAccessed": 1781665037502,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\README.md",
+      "accessCount": 2,
+      "lastAccessed": 1781676717759,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\skills\\godot-dev\\gdscript\\SKILL.md",
+      "accessCount": 2,
+      "lastAccessed": 1781750301220,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\skills\\godot-dev\\nodes-and-scenes\\SKILL.md",
+      "accessCount": 2,
+      "lastAccessed": 1781750329035,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\skills\\godot-dev\\physics\\SKILL.md",
+      "accessCount": 2,
+      "lastAccessed": 1781750360581,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\skills\\godot-dev\\ui-system\\SKILL.md",
+      "accessCount": 2,
+      "lastAccessed": 1781750390604,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\skills\\godot-dev\\animation\\SKILL.md",
+      "accessCount": 2,
+      "lastAccessed": 1781750416192,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\skills\\godot-dev\\shaders\\SKILL.md",
+      "accessCount": 2,
+      "lastAccessed": 1781750451304,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\skills\\godot-dev\\2d-development\\SKILL.md",
+      "accessCount": 2,
+      "lastAccessed": 1781750483594,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\skills\\godot-dev\\3d-development\\SKILL.md",
+      "accessCount": 2,
+      "lastAccessed": 1781750527511,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\skills\\godot-dev\\audio\\SKILL.md",
+      "accessCount": 2,
+      "lastAccessed": 1781750558734,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\skills\\godot-dev\\input-system\\SKILL.md",
+      "accessCount": 2,
+      "lastAccessed": 1781750592068,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\skills\\godot-dev\\navigation\\SKILL.md",
+      "accessCount": 2,
+      "lastAccessed": 1781750616213,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\skills\\godot-dev\\state-machine\\SKILL.md",
+      "accessCount": 2,
+      "lastAccessed": 1781750652348,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\skills\\godot-dev\\export-deploy\\SKILL.md",
+      "accessCount": 2,
+      "lastAccessed": 1781750682620,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\references\\getting_started\\introduction\\introduction_to_godot.html",
+      "accessCount": 1,
+      "lastAccessed": 1781664494170,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\references\\getting_started\\step_by_step\\scripting_first_script.html",
+      "accessCount": 1,
+      "lastAccessed": 1781664500867,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\references\\tutorials\\scripting\\gdscript\\index.html",
+      "accessCount": 1,
+      "lastAccessed": 1781664501655,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\references\\getting_started\\step_by_step\\nodes_and_scenes.html",
+      "accessCount": 1,
+      "lastAccessed": 1781664513169,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\references\\tutorials\\2d\\2d_movement.html",
+      "accessCount": 1,
+      "lastAccessed": 1781665039361,
+      "type": "file"
+    },
+    {
+      "path": "lottery-prediction\\README.md",
+      "accessCount": 1,
+      "lastAccessed": 1781676718384,
+      "type": "file"
+    },
+    {
+      "path": "godot-Developer\\skills\\godot-dev\\.playwright-mcp\\page-2026-06-18T02-36-38-741Z.yml",
+      "accessCount": 1,
+      "lastAccessed": 1781750203756,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

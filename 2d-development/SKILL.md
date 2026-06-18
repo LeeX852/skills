@@ -1,36 +1,30 @@
-# 2D Development Skill
+---
+name: 2d-development
+description: Develop 2D games in Godot including sprites, tilemaps, cameras, lighting, and parallax backgrounds. Use this skill when building 2D platformers, top-down games, implementing tilemap-based levels, 2D camera systems, day/night cycles, or any 2D-specific game feature.
+metadata:
+  author: godot-dev
+  version: "1.0"
+---
 
-## Description
-Expert skill for Godot 2D game development including sprites, tilemaps, and 2D physics
-
-## Triggers
-- 2D game development
-- Sprite handling
-- TileMap usage
-- 2D lighting
-- Camera2D
-- Parallax
+# 2D Development
 
 ## Sprite2D
 
 ### Basic Sprite
+
 ```gdscript
 extends Sprite2D
 
 func _ready():
-    # Set texture
     texture = preload("res://assets/player.png")
-    
-    # Flip sprite
-    flip_h = true  # Horizontal flip
-    flip_v = true  # Vertical flip
-    
-    # Modulate (color tint)
+    flip_h = true
+    flip_v = true
     modulate = Color(1, 0, 0, 1)  # Red tint
     modulate.a = 0.5  # Semi-transparent
 ```
 
 ### AnimatedSprite2D
+
 ```gdscript
 extends CharacterBody2D
 
@@ -47,36 +41,30 @@ func _physics_process(delta):
 ## TileMap
 
 ### Setup
+
 ```gdscript
 extends TileMap
 
 func _ready():
-    # Get cell coordinates from world position
     var cell_pos = local_to_map(Vector2(100, 100))
-    
-    # Set tile
     set_cell(0, cell_pos, 0, Vector2i(0, 0))
-    
-    # Get tile data
     var tile_data = get_cell_tile_data(0, cell_pos)
-    
-    # Remove tile
     erase_cell(0, cell_pos)
 ```
 
 ### TileMap Layers
+
 ```gdscript
 func setup_tilemap():
     # Layer 0: Ground
     # Layer 1: Walls
     # Layer 2: Decoration
-    
-    # Set tile on specific layer
     set_cell(0, Vector2i(5, 3), source_id, atlas_coords)
     set_cell(1, Vector2i(5, 3), source_id, atlas_coords)
 ```
 
 ### Custom Data from Tiles
+
 ```gdscript
 func check_tile_property(cell_pos: Vector2i):
     var tile_data = get_cell_tile_data(0, cell_pos)
@@ -89,6 +77,7 @@ func check_tile_property(cell_pos: Vector2i):
 ## Camera2D
 
 ### Basic Camera
+
 ```gdscript
 extends Camera2D
 
@@ -96,11 +85,8 @@ extends Camera2D
 @export var smoothing: float = 5.0
 
 func _ready():
-    # Enable smoothing
     position_smoothing_enabled = true
     position_smoothing_speed = smoothing
-    
-    # Set limits
     limit_left = 0
     limit_top = 0
     limit_right = 1000
@@ -112,6 +98,7 @@ func _physics_process(delta):
 ```
 
 ### Camera Shake
+
 ```gdscript
 extends Camera2D
 
@@ -136,31 +123,28 @@ func _process(delta):
 ## 2D Lighting
 
 ### Point Light
+
 ```gdscript
 extends PointLight2D
 
 func _ready():
-    # Set properties
-    color = Color(1, 0.8, 0.6)  # Warm light
+    color = Color(1, 0.8, 0.6)
     energy = 1.5
     texture_scale = 2.0
-    
-    # Enable shadows
     shadow_enabled = true
 ```
 
 ### Day/Night Cycle
+
 ```gdscript
 extends CanvasModulate
 
 var time_of_day = 0.0
-@export var day_duration = 120.0  # seconds
+@export var day_duration = 120.0
 
 func _process(delta):
     time_of_day += delta / day_duration
     time_of_day = fmod(time_of_day, 1.0)
-    
-    # Calculate light color based on time
     var brightness = sin(time_of_day * PI) * 0.5 + 0.5
     color = Color(brightness, brightness, brightness * 0.8)
 ```
@@ -179,6 +163,7 @@ func _process(delta):
 ## 2D Movement Patterns
 
 ### Top-Down Movement
+
 ```gdscript
 extends CharacterBody2D
 
@@ -191,6 +176,7 @@ func _physics_process(delta):
 ```
 
 ### Platformer Movement
+
 ```gdscript
 extends CharacterBody2D
 
@@ -199,21 +185,16 @@ extends CharacterBody2D
 @export var gravity = 1000.0
 
 func _physics_process(delta):
-    # Gravity
     velocity.y += gravity * delta
-    
-    # Horizontal movement
     var direction = Input.get_axis("left", "right")
     velocity.x = direction * speed
-    
-    # Jump
     if is_on_floor() and Input.is_action_just_pressed("jump"):
         velocity.y = jump_force
-    
     move_and_slide()
 ```
 
 ### Grid-Based Movement
+
 ```gdscript
 extends CharacterBody2D
 
@@ -232,7 +213,6 @@ func _process(delta):
         if input.length() > 0:
             target_position = position + input * tile_size
             is_moving = true
-    
     if is_moving:
         position = position.lerp(target_position, move_speed * delta)
         if position.distance_to(target_position) < 1:

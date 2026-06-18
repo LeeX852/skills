@@ -1,18 +1,15 @@
-# State Machine Pattern Skill
+---
+name: state-machine
+description: Implement state machine patterns in Godot for game logic, AI behavior, and player states. Use this skill when creating player state machines (idle/run/jump/attack), enemy AI behaviors (patrol/chase/attack), game state management (menu/playing/paused), or any system that needs clean state transitions.
+metadata:
+  author: godot-dev
+  version: "1.0"
+---
 
-## Description
-Expert skill for implementing state machines in Godot for game logic, AI, and player states
+# State Machine Pattern
 
-## Triggers
-- State management
-- Game states
-- AI behavior
-- Player states
-- Enemy AI
+## Base State Machine
 
-## Simple State Machine
-
-### Base State Machine
 ```gdscript
 class_name StateMachine
 extends Node
@@ -30,7 +27,7 @@ func _ready():
             states[child.name.to_lower()] = child
             child.state_machine = self
             child.player = owner
-    
+
     if initial_state:
         current_state = initial_state
         current_state.enter()
@@ -48,17 +45,18 @@ func transition_to(new_state_name: String):
     if not new_state:
         push_error("State not found: " + new_state_name)
         return
-    
+
     if current_state:
         current_state.exit()
-    
+
     var old_state_name = current_state.name if current_state else ""
     current_state = new_state
     current_state.enter()
     state_changed.emit(old_state_name, new_state_name)
 ```
 
-### Base State Class
+## Base State Class
+
 ```gdscript
 class_name State
 extends Node
@@ -82,6 +80,7 @@ func physics_process(delta: float):
 ## Player State Machine
 
 ### Idle State
+
 ```gdscript
 extends State
 
@@ -91,25 +90,25 @@ func enter():
 
 func physics_process(delta: float):
     var input_dir = Input.get_vector("left", "right", "forward", "back")
-    
+
     if input_dir.length() > 0:
         state_machine.transition_to("Run")
         return
-    
+
     if Input.is_action_just_pressed("jump"):
         state_machine.transition_to("Jump")
         return
-    
+
     if Input.is_action_just_pressed("attack"):
         state_machine.transition_to("Attack")
         return
 
-    # Apply gravity
     if not player.is_on_floor():
         state_machine.transition_to("Fall")
 ```
 
 ### Run State
+
 ```gdscript
 extends State
 
@@ -121,7 +120,7 @@ func enter():
 func physics_process(delta: float):
     var input_dir = Input.get_vector("left", "right", "forward", "back")
     var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-    
+
     if direction:
         player.velocity.x = direction.x * speed
         player.velocity.z = direction.z * speed
@@ -129,19 +128,20 @@ func physics_process(delta: float):
     else:
         state_machine.transition_to("Idle")
         return
-    
+
     if Input.is_action_just_pressed("jump"):
         state_machine.transition_to("Jump")
         return
-    
+
     if Input.is_action_just_pressed("attack"):
         state_machine.transition_to("Attack")
         return
-    
+
     player.move_and_slide()
 ```
 
 ### Jump State
+
 ```gdscript
 extends State
 
@@ -152,22 +152,21 @@ func enter():
     player.animation_player.play("jump")
 
 func physics_process(delta: float):
-    # Apply gravity
     player.velocity.y -= ProjectSettings.get_setting("physics/3d/default_gravity") * delta
-    
-    # Air control
+
     var input_dir = Input.get_vector("left", "right", "forward", "back")
     var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-    player.velocity.x = direction.x * speed * 0.8  # Reduced air control
+    player.velocity.x = direction.x * speed * 0.8
     player.velocity.z = direction.z * speed * 0.8
-    
+
     player.move_and_slide()
-    
+
     if player.is_on_floor():
         state_machine.transition_to("Idle")
 ```
 
 ### Attack State
+
 ```gdscript
 extends State
 
@@ -193,6 +192,7 @@ func physics_process(delta: float):
 ## AI State Machine
 
 ### Enemy Patrol State
+
 ```gdscript
 extends State
 
@@ -211,19 +211,19 @@ func physics_process(delta: float):
         current_point = (current_point + 1) % patrol_points.size()
         player.nav_agent.target_position = patrol_points[current_point]
         return
-    
+
     var next_pos = player.nav_agent.get_next_path_position()
     var direction = (next_pos - player.global_position).normalized()
-    
+
     player.velocity = direction * patrol_speed
     player.move_and_slide()
-    
-    # Check for player
+
     if player.can_see_player():
         state_machine.transition_to("Chase")
 ```
 
 ### Enemy Chase State
+
 ```gdscript
 extends State
 
@@ -236,49 +236,18 @@ func physics_process(delta: float):
     if not player.can_see_player():
         state_machine.transition_to("Patrol")
         return
-    
+
     var target_pos = player.player.global_position
     player.nav_agent.target_position = target_pos
-    
+
     var next_pos = player.nav_agent.get_next_path_position()
     var direction = (next_pos - player.global_position).normalized()
-    
+
     player.velocity = direction * chase_speed
     player.move_and_slide()
-    
-    # Attack if close enough
+
     if player.global_position.distance_to(target_pos) < 2.0:
         state_machine.transition_to("Attack")
-```
-
-### Enemy Attack State
-```gdscript
-extends State
-
-@export var attack_cooldown = 1.0
-
-var attack_timer = 0.0
-
-func enter():
-    player.velocity = Vector3.ZERO
-    player.animation_player.play("attack")
-    attack_timer = attack_cooldown
-    
-    # Deal damage
-    if player.player_in_range:
-        player.player.take_damage(player.attack_damage)
-
-func physics_process(delta: float):
-    attack_timer -= delta
-    
-    if attack_timer <= 0:
-        if player.can_see_player():
-            if player.global_position.distance_to(player.player.global_position) < 2.0:
-                state_machine.transition_to("Attack")
-            else:
-                state_machine.transition_to("Chase")
-        else:
-            state_machine.transition_to("Patrol")
 ```
 
 ## Game State Machine
@@ -296,9 +265,9 @@ func change_state(new_state: GameState):
             get_tree().paused = false
         GameState.PAUSED:
             get_tree().paused = false
-    
+
     current_state = new_state
-    
+
     match new_state:
         GameState.MENU:
             show_menu()

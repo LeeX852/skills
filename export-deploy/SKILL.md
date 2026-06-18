@@ -1,20 +1,18 @@
-# Export and Deploy Skill
+---
+name: export-deploy
+description: Export and deploy Godot projects to Windows, Linux, macOS, Android, iOS, and Web platforms. Use this skill when configuring export presets, setting up CI/CD pipelines, preparing release builds, optimizing for target platforms, or distributing games to Steam, itch.io, or mobile stores.
+metadata:
+  author: godot-dev
+  version: "1.0"
+---
 
-## Description
-Expert skill for exporting Godot projects to various platforms
-
-## Triggers
-- Game export
-- Platform deployment
-- Build settings
-- Release preparation
-- Export presets
+# Export and Deploy
 
 ## Export Presets Setup
 
 ### Windows Export
+
 ```cfg
-# export_presets.cfg
 [preset.0]
 name="Windows"
 platform="Windows"
@@ -29,6 +27,7 @@ texture_format/etc2=false
 ```
 
 ### Linux Export
+
 ```cfg
 [preset.1]
 name="Linux"
@@ -37,6 +36,7 @@ export_path="build/linux/game.x86_64"
 ```
 
 ### macOS Export
+
 ```cfg
 [preset.2]
 name="macOS"
@@ -45,6 +45,7 @@ export_path="build/macos/game.app"
 ```
 
 ### Android Export
+
 ```cfg
 [preset.3]
 name="Android"
@@ -59,6 +60,7 @@ gradle_build/export_format=0
 ```
 
 ### Web Export
+
 ```cfg
 [preset.4]
 name="Web"
@@ -68,19 +70,11 @@ export_path="build/web/game.html"
 
 ## Export via Command Line
 
-### Windows
 ```bash
+# Single platform
 godot --headless --export-release "Windows" build/windows/game.exe
-```
 
-### Linux
-```bash
-godot --headless --export-release "Linux" build/linux/game.x86_64
-```
-
-### All Platforms
-```bash
-#!/bin/bash
+# All platforms
 godot --headless --export-release "Windows" build/windows/game.exe
 godot --headless --export-release "Linux" build/linux/game.x86_64
 godot --headless --export-release "Web" build/web/game.html
@@ -89,8 +83,8 @@ godot --headless --export-release "Web" build/web/game.html
 ## Export Settings
 
 ### Quality Settings
-```gdscript
-# project.godot
+
+```ini
 [rendering]
 renderer/rendering_method="forward_plus"
 renderer/rendering_method.mobile="mobile"
@@ -98,7 +92,8 @@ anti_aliasing/quality/msaa_3d=2
 ```
 
 ### Performance Settings
-```gdscript
+
+```ini
 [rendering]
 limits/rendering/max_renderable_elements=10000
 limits/rendering/max_lights=32
@@ -108,55 +103,55 @@ quality/filters/anisotropic_filter_level=4
 ## Platform-Specific Settings
 
 ### Windows
-```
+
 - Embed PCK: Single executable
 - Code signing: For distribution
 - Console: Hide for release
-```
 
 ### Android
-```
+
 - Minimum SDK: 24
 - Target SDK: 34
 - Permissions: Internet, Vibrate
 - Keystore: For signing
-```
 
 ### iOS
-```
+
 - Bundle identifier: com.company.game
 - Team ID: For signing
 - Provisioning profile: Required
-```
 
 ### Web
-```
+
 - HTML shell: Custom loading screen
 - Canvas resize: Responsive
 - Threads: Enable if needed
-```
 
 ## Pre-Export Checklist
 
 ### Project Settings
+
 - [ ] Set main scene
 - [ ] Configure window size
 - [ ] Set application name
 - [ ] Configure icon
 
 ### Performance
+
 - [ ] Enable appropriate renderer
 - [ ] Set texture quality
 - [ ] Configure shadow quality
 - [ ] Optimize meshes
 
 ### Assets
+
 - [ ] Compress textures
 - [ ] Optimize audio formats
 - [ ] Remove unused resources
 - [ ] Set import settings
 
 ### Build
+
 - [ ] Test export template
 - [ ] Verify all scenes included
 - [ ] Check resource paths
@@ -165,6 +160,7 @@ quality/filters/anisotropic_filter_level=4
 ## CI/CD Pipeline
 
 ### GitHub Actions
+
 ```yaml
 name: Build and Export
 
@@ -177,21 +173,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup Godot
         uses: chickensoft-games/setup-godot@v1
         with:
           version: 4.3.0
-      
+
       - name: Export Windows
         run: godot --headless --export-release "Windows" build/windows/game.exe
-      
+
       - name: Export Linux
         run: godot --headless --export-release "Linux" build/linux/game.x86_64
-      
+
       - name: Export Web
         run: godot --headless --export-release "Web" build/web/game.html
-      
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -202,35 +198,32 @@ jobs:
 ## Distribution Platforms
 
 ### Steam
+
 - Use Steamworks SDK
 - Set up depot configuration
 - Configure achievements
 - Test with Steamworks
 
 ### itch.io
+
 - Upload HTML5 for web
 - Upload builds for desktop
 - Set up page with screenshots
 
 ### Mobile Stores
+
 - Google Play Store (Android)
 - Apple App Store (iOS)
 - Follow store guidelines
 
 ## Debug vs Release
 
-### Debug Build
 ```gdscript
 if OS.is_debug_build():
-    # Debug only code
     show_debug_info()
     enable_cheats()
-```
 
-### Release Build
-```gdscript
 if not OS.is_debug_build():
-    # Release only code
     disable_debug_logging()
     enable_analytics()
 ```
